@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 #include "helper.h"
 
 void display(int arr[]) {
@@ -36,4 +37,11 @@ int *random_array() {
 void display_test() {
     int *arr = random_array();
     display(arr);
+}
+
+int *copy(int const *src) {
+    int len = ARRAY_NUM;
+    int *p = malloc(len * sizeof(int));
+    memcpy(p, src, len * sizeof(int));
+    return p;
 }

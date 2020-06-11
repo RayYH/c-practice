@@ -41,13 +41,25 @@ void c_basic() {
 int main() {
 
     int *arr = random_array();
+    int *arr2 = copy(arr);
+    int *arr3 = copy(arr);
 
-    printf("Before:\n");
+    printf("Source Data:\n");
     display(arr);
+    printf("Bubble Sort...\n\n");
     bubble_sort(arr, ARRAY_NUM);
-
-    printf("\n\nAfter:\n");
     display(arr);
+    printf("\ncompare num: %d\nswap num: %d", compare_num, swap_num);
+
+    printf("\n");
+    bubble_sort_with_flag(arr2, ARRAY_NUM);
+    display(arr2);
+    printf("\ncompare num: %d\nswap num: %d", compare_num, swap_num);
+
+    printf("\n");
+    bubble_sort_with_flag_and_boundary(arr3, ARRAY_NUM);
+    display(arr3);
+    printf("\ncompare num: %d\nswap num: %d", compare_num, swap_num);
 
     return 0;
 }
