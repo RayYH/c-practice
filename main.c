@@ -1,6 +1,6 @@
-#include "core/basic/pointers.h"
+#include "core/basic/unions.h"
 
 int main() {
-    memory_usage();
+    union_usage();
     return 0;
 }
