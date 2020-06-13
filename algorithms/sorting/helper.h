@@ -2,13 +2,6 @@
 #define C_PRACTICE_HELPER_H
 
 #define ARRAY_NUM 100
-#define ELEM_MIN 0
-#define ELEM_MAX 200
-
-#define TRUE 1
-#define FALSE 0
-
-typedef int bool;
 
 int compare_num;
 int swap_num;

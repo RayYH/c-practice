@@ -1,6 +1,6 @@
-#include "core/intro/flow_control.h"
+#include "core/basic/arrays.h"
 
 int main() {
-    goto_statement();
+    generate_numbers_from_stdin();
     return 0;
 }

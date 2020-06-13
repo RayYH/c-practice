@@ -3,4 +3,4 @@ project(c_practice C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(c_practice main.c algorithms/sorting/bubble_sort.c algorithms/sorting/helper.c algorithms/sorting/helper.h algorithms/sorting/sorting.h core/intro/keywords.c core/intro/keywords.h common.h core/intro/data_types.c core/intro/data_types.h core/intro/operators.h core/intro/operators.c core/intro/flow_control.h core/intro/flow_control.c)
+add_executable(c_practice main.c algorithms/sorting/bubble_sort.c algorithms/sorting/helper.c algorithms/sorting/helper.h algorithms/sorting/sorting.h core/basic/keywords.c core/basic/keywords.h common.h core/basic/data_types.c core/basic/data_types.h core/basic/operators.h core/basic/operators.c core/basic/flow_control.h core/basic/flow_control.c core/basic/arrays.c core/basic/arrays.h)
