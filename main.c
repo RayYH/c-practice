@@ -1,6 +1,6 @@
-#include "core/basic/unions.h"
+#include "core/misc/macros.h"
 
 int main() {
-    union_usage();
+    macro_usage();
     return 0;
 }
