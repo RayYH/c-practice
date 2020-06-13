@@ -1,6 +1,6 @@
-#include "core/basic/arrays.h"
+#include "core/basic/pointers.h"
 
 int main() {
-    generate_numbers_from_stdin();
+    memory_usage();
     return 0;
 }
