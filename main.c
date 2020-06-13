@@ -1,6 +1,6 @@
-#include "core/misc/macros.h"
+#include "core/std/ctype_test.h"
 
 int main() {
-    macro_usage();
+    all_characters();
     return 0;
 }
