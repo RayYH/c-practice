@@ -47,11 +47,13 @@ void custom_macro_usage() {
     assert(MACRO_INTEGER_MAX == 100);
     assert(Y == 5);
     assert(A == 5);
+    int m = 4;
+    assert(SQUARE(m + 2) == 14); // m+2*m+2 = m+2m+2 = 3m+2 = 14
     printf("A: %d\n", A);
     printf("D: %d\n", D);
-    printf("- - 1*2+3: %d\n", - - 1*2+3);
+    printf("- - 1*2+3: %d\n", - -1 * 2 + 3);
     printf("E: %d\n", E);
-    printf("- 1*2+3: %d\n", - 1*2+3);
+    printf("- 1*2+3: %d\n", -1 * 2 + 3);
     printf("F: %d\n", F);
     printf("G: %d\n", G);
 }
