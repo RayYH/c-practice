@@ -1,26 +1,26 @@
 #include "structs.h"
 
-struct person {
+struct Person {
     char name[50];
     int age;
 };
 
 // typedef keyword and nested struct
-typedef struct book {
-    struct person author;
+typedef struct Book {
+    struct Person author;
     char title[50];
     float price;
-} book;
+} Book;
 
-typedef struct complex {
+typedef struct Complex {
     float real;
     float imag;
-} complex;
+} Complex;
 
 void struct_usage() {
     char name[20];
 
-    struct person person1, person2;
+    struct Person person1, person2;
     strcpy(person1.name, "Ray");
     person1.age = 24;
     strcpy(person2.name, "Tom");
@@ -29,14 +29,14 @@ void struct_usage() {
     printf("%s's age is %d.\n", person1.name, person1.age);
     printf("%s's age is %d.\n", person2.name, person2.age);
 
-    book book1;
+    Book book1;
     strcpy(book1.title, "Book Title!");
     book1.author = person1;
     book1.price = 12.7f;
 
-    printf("The price of %s's book '%s' is %.2f.\n", book1.author.name, book1.title, book1.price);
+    printf("The price of %s's Book '%s' is %.2f.\n", book1.author.name, book1.title, book1.price);
 
-    struct person *person_ptr, person3;
+    struct Person *person_ptr, person3;
     person_ptr = &person3;
     printf("Enter name: ");
     scanf("%s", name);
@@ -53,19 +53,19 @@ void struct_usage() {
 }
 
 void memory_allocation() {
-    struct person *ptr;
+    struct Person *ptr;
     int i, n;
 
     printf("Enter the number of persons: ");
     scanf("%d", &n);
-    // allocating memory for n numbers of struct person
-    ptr = (struct person *) malloc(n * sizeof(struct person));
+    // allocating memory for n numbers of struct Person
+    ptr = (struct Person *) malloc(n * sizeof(struct Person));
     for (i = 0; i < n; ++i) {
         printf("Enter first name and age respectively: ");
-        // To access members of 1st struct person,
+        // To access members of 1st struct Person,
         // ptr->name and ptr->age is used
 
-        // To access members of 2nd struct person,
+        // To access members of 2nd struct Person,
         // (ptr+1)->name and (ptr+1)->age is used
         scanf("%s %d", (ptr + i)->name, &(ptr + i)->age);
     }
@@ -76,13 +76,13 @@ void memory_allocation() {
     }
 }
 
-void add_numbers(complex c1, complex c2, complex *result) {
+void add_numbers(Complex c1, Complex c2, Complex *result) {
     result->real = c1.real + c2.real;
     result->imag = c1.imag + c2.imag;
 }
 
 void passing_struct_by_ref() {
-    complex c1, c2, result;
+    Complex c1, c2, result;
 
     printf("For first number,\n");
     printf("Enter real part: ");

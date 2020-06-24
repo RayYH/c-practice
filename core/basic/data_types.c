@@ -1,4 +1,5 @@
 #include "data_types.h"
+#include <assert.h>
 
 /**
  * Type     	            Size (bytes)        	        Format Specifier
@@ -45,4 +46,39 @@ void data_types() {
     printf("long int: %lu\n", sizeof(long int));
     printf("long long int: %lu\n", sizeof(long long int));
     printf("long double: %lu\n", sizeof(long double));
+
+    // include stdbool.h we can use true and false
+    printf("true: %d\n", true);
+    printf("false: %d\n", false);
+}
+
+void data_types_overflow() {
+    int maxInt = INT_MAX;
+    int maxIntPlusOne = maxInt + 1;
+    assert(maxIntPlusOne == INT_MIN);
+    printf("int: %d + 1 = %d\n", maxInt, maxIntPlusOne);
+
+    long maxLong = LONG_MAX;
+    long maxLongPlusOne = maxLong + 1;
+    printf("long: %ld + 1 = %ld\n", maxLong, maxLongPlusOne);
+    assert(maxLongPlusOne == LONG_MIN);
+}
+
+void integer_promotions() {
+    char a = 30, b = 40, c = 10;
+    // a*b=1200 > 127
+    char d = (a * b) / c;
+    printf("%d\n", d); // still works
+
+    char e = 0xfb;
+    unsigned char f = 0xfb;
+
+    // hex: 1111 1011
+    // 2's complement of signed numbers: 10000101 = -5
+
+    printf("%c: %d\n", e, e);
+    printf("%c: %d\n", f, f);
+
+    // when comparison operation is performed on e & f, they are first converted to int.
+    assert(e != f);
 }

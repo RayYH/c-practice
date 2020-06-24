@@ -4,7 +4,7 @@
 #include "../../common.h"
 
 void simple_array();
-void input_output();
+void array_from_stdin();
 void multi_dimensional_array();
 void sum_square_matrix();
 void display_two_dimensional_array(int *arr, int outer_index, int inner_index);

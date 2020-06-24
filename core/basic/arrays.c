@@ -8,7 +8,7 @@ void simple_array() {
     }
 }
 
-void input_output() {
+void array_from_stdin() {
     int values[5];
 
     printf("\nEnter 5 integers: ");
