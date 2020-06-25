@@ -2,6 +2,7 @@
 #include "core/basic/integers.h"
 #include "core/misc/macros.h"
 #include "core/basic/variables.h"
+#include "core/misc/enums.h"
 
 int global_int = 1;
 
@@ -33,7 +34,7 @@ void integers() {
  * $ gcc –Wall –save-temps filename.c –o filename
  */
 int main() {
-    extern_keyword();
+    enum_usage();
 
     return 0;
 }
