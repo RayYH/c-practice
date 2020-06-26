@@ -1,13 +1,16 @@
 #include "enums.h"
 
-// enum 关键字在 C/C++ 中用于定义枚举类型: enum flag{constant_1, constant_2, constant_3, ...}
-// 如果不显示声明枚举的值，则枚举的值依次为 0, 1, 2, 3...
-// 然后我们可以用 enum flag constant_X 来声明一个枚举中的元素
+// The keyword `enum` is used to declare new enumeration types in C and C++.
+// enum flag{constant_1, constant_2, constant_3, ...}
+
+// By default, the values of the constants are as follows: constant_1 = 0, constant_2 = 1, constant_3 = 2 and so on.
+
+// We can declare an enum value: enum flag constant_x, while use constant_x directly is also allowed.
 
 enum state {
     Working = 1,
     Failed = 0,
-    Frozen = 0 // 两个不同的枚举名可以拥有相同的枚举值
+    Frozen = 0 // Two enum names can have same value.
 };
 
 enum week {
@@ -20,10 +23,13 @@ enum week {
     Saturday
 };
 
-// 我们不必全部显示声明值，未声明的值为前一个枚举值 + 1，类似于 Go 中的 iota
+// If we do not explicitly assign values to enum names, the compiler by default assigns values from 0.
+// We can assign values to some name in any order. All unassigned names get value as value of previous name plus one.
+// The value assigned to enum names must be a valid integer, i.e., the value must be in range from minimum possible
+// integer value to maximum possible integer value.
 enum day {
     sunday = 1,
-    monday, // 此时 monday = 2
+    monday, // monday = 2
     tuesday = 5,
     wednesday, // 6
     thursday = 10,
@@ -31,17 +37,19 @@ enum day {
     saturday
 };
 
-// 你可能注意到在 day 里面，我们并未采用大写，这是因为编译器不允许在当前文件的作用域内存在两个同名的枚举值
-// 你可以在 main.c 文件中声明一个同样的枚举值，编译器是 OK 的
+// You may noticed that we capitalized the first letter in each word of `week` enums, while the first letter in each
+// word of day is lower. This is because all enum constants must be unique in their scope.
+// You can define a same enum inside `main.c` file, the compiler will not throw an error, but inside current file,
+// same enum name is not allowed!
 
 enum suit {
     club = 0,
     diamonds = 10,
     hearts = 20,
     spades = 3
-} card; // 可以使用别名
+} card; // You can use an alias.
 
-void enum_usage() {
+void enum_test() {
     enum week today;
     today = Saturday;
     assert(today == 6);
@@ -49,7 +57,7 @@ void enum_usage() {
     assert(current_state == 1);
     card = club;
     assert(sizeof(card) == sizeof(int));
-    // 枚举值可以直接拿来使用
+    // we can use enum names directly
     assert(Working == 1);
     assert(Failed == 0);
     assert(Frozen == 0);
@@ -102,8 +110,8 @@ void switch_enums() {
 }
 
 /*
- * 枚举和使用宏定义常量的区别
+ * Enum vs Macro
  *
- * 1. 作用域
- * 2. 枚举可以自动赋值
+ * 1. Enums follow scope rules.
+ * 2. Enum variables are automatically assigned values.
  */

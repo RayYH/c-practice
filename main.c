@@ -1,8 +1,8 @@
 #include "core/basic/data_types.h"
 #include "core/basic/integers.h"
-#include "core/misc/macros.h"
+#include "core/basic/macros.h"
 #include "core/basic/variables.h"
-#include "core/misc/enums.h"
+#include "core/basic/enums.h"
 
 int global_int = 1;
 
@@ -13,6 +13,11 @@ void data_types_usage() {
 
 void integers() {
     two_s_complement();
+}
+
+void enum_usage() {
+    enum_test();
+    switch_enums();
 }
 
 /**
@@ -34,7 +39,7 @@ void integers() {
  * $ gcc –Wall –save-temps filename.c –o filename
  */
 int main() {
-    enum_usage();
+    enum_test();
 
     return 0;
 }

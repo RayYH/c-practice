@@ -3,7 +3,7 @@
 
 #include "../../common.h"
 
-void enum_usage();
+void enum_test();
 
 void switch_enums();
 
