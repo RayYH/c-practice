@@ -20,6 +20,14 @@ void enum_usage() {
     switch_enums();
 }
 
+void variable_usage() {
+    const_keyword();
+    static_keyword();
+    void_keyword();
+    extern_keyword();
+    variables_assertion();
+}
+
 /**
  * In C, if a function signature DOES NOT specify any argument, it means that the function can be called with any
  * number of parameters or without any parameters.
@@ -39,7 +47,7 @@ void enum_usage() {
  * $ gcc –Wall –save-temps filename.c –o filename
  */
 int main() {
-    enum_test();
+    variable_usage();
 
     return 0;
 }

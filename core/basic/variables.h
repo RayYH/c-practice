@@ -3,8 +3,14 @@
 
 #include "../../common.h"
 
-void display_variables();
+void variables_assertion();
 
 void extern_keyword();
+
+void const_keyword();
+
+void static_keyword();
+
+void void_keyword();
 
 #endif //C_PRACTICE_VARIABLES_H
