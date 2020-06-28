@@ -5,12 +5,13 @@
  *
  * Useful Links:
  *
- * 1. https://www.geeksforgeeks.org/difference-between-definition-and-declaration/
- * 2. https://www.geeksforgeeks.org/understanding-extern-keyword-in-c/
- * 3. https://www.geeksforgeeks.org/static-variables-in-c/
- * 4. https://www.geeksforgeeks.org/what-are-static-functions-in-c/
- * 5. https://www.geeksforgeeks.org/variables-and-keywords-in-c/
- * 6. https://www.geeksforgeeks.org/void-pointer-c-cpp/
+ * https://www.geeksforgeeks.org/difference-between-definition-and-declaration/
+ * https://www.geeksforgeeks.org/understanding-extern-keyword-in-c/
+ * https://www.geeksforgeeks.org/static-variables-in-c/
+ * https://www.geeksforgeeks.org/what-are-static-functions-in-c/
+ * https://www.geeksforgeeks.org/variables-and-keywords-in-c/
+ * https://www.geeksforgeeks.org/void-pointer-c-cpp/
+ * https://www.geeksforgeeks.org/g-fact-16/
  *
  ***********************************************************************************************************************
  */
@@ -38,6 +39,7 @@ void variables_assertion() {
         y++;
         assert(y == 5 + i);
     }
+    assert(z == 10);
 }
 
 // const data_type var_name = var_value;
