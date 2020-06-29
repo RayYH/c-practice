@@ -77,7 +77,7 @@ void isgraph_test() {
 
 void islower_test() {
     int i = 0;
-    char str[] = "Test String.\n";
+    char str[] = "Test String.";
     char new_str[strlen(str)];
     char c;
     while (str[i]) {
@@ -88,7 +88,7 @@ void islower_test() {
         new_str[i++] = c;
     }
 
-    assert(strcmp(new_str, "TEST STRING.\n") == 0);
+    assert(strcmp(new_str, "TEST STRING.") == 0);
 }
 
 // A printable character is a character that occupies a printing position on a display
@@ -140,7 +140,7 @@ void isspace_test() {
 
 void isupper_test() {
     int i = 0;
-    char str[] = "Test String.\n";
+    char str[] = "Test String.";
     char new_str[strlen(str)];
     char c;
     while (str[i]) {
@@ -151,7 +151,7 @@ void isupper_test() {
         new_str[i++] = c;
     }
 
-    assert(strcmp(new_str, "test string.\n") == 0);
+    assert(strcmp(new_str, "test string.") == 0);
 }
 
 // Hexadecimal digits are any of: 0 1 2 3 4 5 6 7 8 9 a b c d e f A B C D E F
