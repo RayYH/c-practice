@@ -59,3 +59,5 @@ add_executable(
         core/std/limits_test.h
         core/std/limits_test.c
 )
+
+target_link_libraries(c_practice m)
