@@ -87,6 +87,7 @@ void islower_test() {
         }
         new_str[i++] = c;
     }
+    new_str[i] = '\0';
 
     assert(strcmp(new_str, "TEST STRING.") == 0);
 }
@@ -150,6 +151,8 @@ void isupper_test() {
         }
         new_str[i++] = c;
     }
+
+    new_str[i] = '\0';
 
     assert(strcmp(new_str, "test string.") == 0);
 }
