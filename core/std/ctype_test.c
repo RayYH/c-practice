@@ -7,8 +7,9 @@
 void isalnum_test() {
     char str[] = "c3po...";
     int i = 0;
+    // first 4 characters are alphanumeric, so the i is 5
     while (isalnum(str[i++]));
-    printf("The first %d characters are alphanumeric.\n", i - 1);
+    assert(i == 5);
 }
 
 void isalpha_test() {
@@ -16,9 +17,9 @@ void isalpha_test() {
     char str[] = "C++";
     while (str[i]) {
         if (isalpha(str[i])) {
-            printf("character %c is alphabetic\n", str[i]);
+            assert(str[i] == 'C');
         } else {
-            printf("character %c is not alphabetic\n", str[i]);
+            assert(str[i] == '+');
         }
         i++;
     }
@@ -28,23 +29,27 @@ void isblank_test() {
     char c;
     int i = 0;
     char str[] = "Example sentence to test isblank\n";
+    char new_str[strlen(str)];
     while (str[i]) {
         c = str[i];
         if (isblank(c)) {
             c = '\n';
         }
-        putchar(c);
-        i++;
+        new_str[i++] = c;
     }
+    assert(strcmp(new_str, "Example\nsentence\nto\ntest\nisblank\n") == 0);
 }
 
 void iscntrl_test() {
     int i = 0;
     char str[] = "first line \n second line \n";
+    char new_str[strlen(str)];
     while (!iscntrl(str[i])) {
-        putchar(str[i]);
+        new_str[i] = str[i];
         i++;
     }
+    new_str[i] = '\0';
+    assert(strcmp(new_str, "first line ") == 0);
 }
 
 void isdigit_test() {
@@ -52,7 +57,7 @@ void isdigit_test() {
     char str[] = "1776ad";
     if (isdigit(str[0])) {
         year = atoi(str);
-        printf("The year that followed %d was %d.\n", year, year + 1);
+        assert(year == 1776);
     }
 }
 
@@ -60,26 +65,30 @@ void isdigit_test() {
 // than can be printed (as determined by isprint) except the space character (' ').
 void isgraph_test() {
     int i;
+    printf("\n\n");
     printf("All graphic characters in C programming are: \n");
     for (i = 0; i <= 127; ++i) {
         if (isgraph(i) != 0) {
             printf("%c ", i);
         }
     }
+    printf("\n\n");
 }
 
 void islower_test() {
     int i = 0;
     char str[] = "Test String.\n";
+    char new_str[strlen(str)];
     char c;
     while (str[i]) {
         c = str[i];
         if (islower(c)) {
             c = toupper(c);
         }
-        putchar(c);
-        i++;
+        new_str[i++] = c;
     }
+
+    assert(strcmp(new_str, "TEST STRING.\n") == 0);
 }
 
 // A printable character is a character that occupies a printing position on a display
@@ -87,10 +96,8 @@ void islower_test() {
 void isprint_test() {
     int i = 0;
     char str[] = "first line \n second line \n";
-    while (isprint(str[i])) {
-        putchar(str[i]);
-        i++;
-    }
+    while (isprint(str[i++]));
+    assert(i == 12);
 }
 
 // The standard "C" locale considers punctuation characters all graphic characters (as in isgraph)
@@ -98,6 +105,7 @@ void isprint_test() {
 void ispunct_test() {
     int i = 0;
     int cx = 0;
+    // , and ! arr punctuations.
     char str[] = "Hello, welcome!";
     while (str[i]) {
         if (ispunct(str[i])) {
@@ -105,7 +113,7 @@ void ispunct_test() {
         }
         i++;
     }
-    printf("Sentence contains %d punctuation characters.\n", cx);
+    assert(cx == 2);
 }
 
 // For the "C" locale, white-space characters are any of:
@@ -118,29 +126,32 @@ void ispunct_test() {
 void isspace_test() {
     char c;
     int i = 0;
-    char str[] = "Example sentence to test isspace\n";
+    char str[] = "Example\tsentence\vto\rtest isspace\n";
+    char new_str[strlen(str)];
     while (str[i]) {
         c = str[i];
         if (isspace(c)) {
             c = '\n';
         }
-        putchar(c);
-        i++;
+        new_str[i++] = c;
     }
+    assert(strcmp(new_str, "Example\nsentence\nto\ntest\nisspace\n") == 0);
 }
 
 void isupper_test() {
     int i = 0;
     char str[] = "Test String.\n";
+    char new_str[strlen(str)];
     char c;
     while (str[i]) {
         c = str[i];
         if (isupper(c)) {
             c = tolower(c);
         }
-        putchar(c);
-        i++;
+        new_str[i++] = c;
     }
+
+    assert(strcmp(new_str, "test string.\n") == 0);
 }
 
 // Hexadecimal digits are any of: 0 1 2 3 4 5 6 7 8 9 a b c d e f A B C D E F
@@ -149,19 +160,12 @@ void isxdigit_test() {
     long int number;
     if (isxdigit(str[0])) {
         number = strtol(str, NULL, 16);
-        printf("The hexadecimal number %lx is %ld.\n", number, number);
+        assert(number == 4011);
     }
 }
 
-void tolower_test() {
-    isupper_test();
-}
-
-void toupper_test() {
-    islower_test();
-}
-
 void all_characters() {
+    printf("Displaying all ascii characters: \n\n");
     printf("%12s%12s%12s%12s%12s%12s%12s%12s%12s%12s%12s%12s%12s%12s\n",
            "ASCII value", "character", "iscntrl", "isblank", "isspace", "isupper",
            "islower", "isalpha", "isdigit", "isxdigit", "isalnum", "ispunct", "isgraph", "isprint"
@@ -195,4 +199,6 @@ void all_characters() {
                isdigit_ch, isxdigit_ch, isalnum_ch, ispunct_ch, isgraph_ch, isprint_ch
         );
     }
+
+    printf("\n\n");
 }

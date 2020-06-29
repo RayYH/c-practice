@@ -1,8 +1,4 @@
-#include "core/basic/data_types.h"
-#include "core/basic/integers.h"
-#include "core/basic/pointers.h"
-#include "core/basic/variables.h"
-#include "core/basic/enums.h"
+#include "core/core.h"
 
 int global_int;
 // C allows a global variable to be declared again when first declaration doesn’t initialize the variable.
@@ -40,6 +36,26 @@ void io_usage() {
     //fflush_stdin();
 }
 
+void assert_tests() {
+    assert_test();
+}
+
+void ctype_test() {
+    isalnum_test();
+    isalpha_test();
+    isblank_test();
+    iscntrl_test();
+    isdigit_test();
+    isgraph_test();
+    islower_test();
+    isprint_test();
+    ispunct_test();
+    isspace_test();
+    isupper_test();
+    isxdigit_test();
+    all_characters();
+}
+
 /**
  * In C, if a function signature DOES NOT specify any argument, it means that the function can be called with any
  * number of parameters or without any parameters.
@@ -59,7 +75,10 @@ void io_usage() {
  * $ gcc –Wall –save-temps filename.c –o filename
  */
 int main(void) {
-    printf("111");
-    pointer_trick();
+    printf("Run Assertions...\n");
+    assert_test();
+    ctype_test();
+
+    printf("Done.\n");
     return 0;
 }

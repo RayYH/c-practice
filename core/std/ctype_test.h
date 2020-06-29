@@ -28,10 +28,6 @@ void isupper_test();
 
 void isxdigit_test();
 
-void tolower_test();
-
-void toupper_test();
-
 void all_characters();
 
 #endif //C_PRACTICE_CTYPE_TEST_H

@@ -58,6 +58,6 @@ add_executable(
         ds/linked_list.h
         core/std/limits_test.h
         core/std/limits_test.c
-)
+        core/std/std.h core/basic/basic.h core/core.h)
 
 target_link_libraries(c_practice m)
