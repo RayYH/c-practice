@@ -1,6 +1,6 @@
 #include "core/basic/data_types.h"
 #include "core/basic/integers.h"
-#include "core/basic/io.h"
+#include "core/basic/pointers.h"
 #include "core/basic/variables.h"
 #include "core/basic/enums.h"
 
@@ -58,20 +58,8 @@ void io_usage() {
  * show temp files
  * $ gcc –Wall –save-temps filename.c –o filename
  */
-int main() {
-    FILE *fp = fopen("test.txt", "r");
-
-    if (fp == NULL) {
-        /* Handle open error */
-    }
-
-    /* Do some processing with file*/
-
-    if (fseek(fp, 0L, SEEK_SET) != 0) {
-        /* Handle repositioning error */
-    }
-
-    /* Do some more precessing with file */
-
+int main(void) {
+    printf("111");
+    pointer_trick();
     return 0;
 }

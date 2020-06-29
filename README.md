@@ -17,7 +17,7 @@ Just some c code, **USE AT YOUR OWN RISK.**
 - [ ] Pointers
 - [ ] Enum, Struct and Union
 - [ ] Memory Management
-- [ ] File Handling
+- [x] File Handling
 - [ ] Puzzles
 - [ ] Misc
 

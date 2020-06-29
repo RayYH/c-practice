@@ -97,3 +97,29 @@ void memory_usage() {
 
     free(ptr);
 }
+
+void pointer_trick() {
+    printf("111");
+    int doses[] = {1, 3, 2, 1000};
+    // doses[3] == *(doses + 3) == *(3 + doses) == 3[doses]
+    //assert(3[doses] == 1000);
+
+    // string literal cannot be changed
+//    char *cards = "JQK";
+//    char cards2[] = "JQK";
+//    char a_card = cards[2];
+//    cards[2] = cards[1];
+//    cards[1] = cards[0];
+//    cards[0] = cards[2];
+//    cards[2] = cards[1];
+//    cards[1] = a_card;
+//    assert(strcmp(cards, "JQK") == 0);
+//    a_card = cards2[2];
+//    cards2[2] = cards2[1];
+//    cards2[1] = cards2[0];
+//    cards2[0] = cards2[2];
+//    cards2[2] = cards2[1];
+//    cards2[1] = a_card;
+//    printf("%s", cards2);
+//    assert(strcmp(cards2, "JQK") == 0);
+}

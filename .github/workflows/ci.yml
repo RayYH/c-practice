@@ -1,0 +1,54 @@
+name: "Build"
+
+on: [push, pull_request]
+
+jobs:
+  job:
+    name: "${{ matrix.os_label }}, ${{ matrix.cc }}, ${{ matrix.build_type }}"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        name: [ubuntu-clang, ubuntu-gcc, macos-clang, macos-gcc]
+        include:
+          - name: ubuntu-clang
+            os: ubuntu-latest
+            os_label: Ubuntu
+            cxx: clang++
+            cc: clang
+
+          - name: ubuntu-gcc
+            os: ubuntu-latest
+            os_label: Ubuntu
+            cxx: g++
+            cc: gcc
+
+          - name: macos-clang
+            os: macos-latest
+            os_label: MacOS
+            cxx: clang++
+            cc: clang
+
+          - name: macos-gcc
+            os: macos-latest
+            os_label: MacOS
+            cxx: g++
+            cc: gcc
+
+        build_type: [Release, Debug]
+
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v2
+
+      - name: "Install cmake"
+        uses: lukka/get-cmake@latest
+
+      - name: "Configure"
+        run: |
+          cmake .
+          make
+
+      - name: "Run tests"
+        run: |
+          ./c_practice

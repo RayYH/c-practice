@@ -51,6 +51,22 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# clion
 cmake-build-debug/
 
+# cmake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+# some executable
 snippet
+c_practice
