@@ -4,3 +4,4 @@ set(CMAKE_C_STANDARD 11)
 
 add_subdirectory(core)
 add_subdirectory(dsa)
+add_subdirectory(apue)

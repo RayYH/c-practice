@@ -121,11 +121,11 @@ void plus_pointer() {
 
 
     int arr1[] = {10, 20};
-    int arr2[] = {10, 20};
-    int arr3[] = {10, 20};
+//    int arr2[] = {10, 20};
+//    int arr3[] = {10, 20};
     int *p1 = arr1;
-    int *p2 = arr2;
-    int *p3 = arr3;
+//    int *p2 = arr2;
+//    int *p3 = arr3;
 
     // ++(*p1)
     ++*p1;
@@ -133,17 +133,19 @@ void plus_pointer() {
     assert(arr1[1] == 20);
     assert(*p1 == 11);
 
-    // *(p2++)
-    *p2++;
-    assert(arr2[0] == 10);
-    assert(arr2[1] == 20);
-    assert(*p2 == 20);
 
-    // *(++p3)
-    *++p3;
-    assert(arr3[0] == 10);
-    assert(arr3[1] == 20);
-    assert(*p3 == 20);
+//    // *(p2++)
+//    *p2++;
+//    assert(arr2[0] == 10);
+//    assert(arr2[1] == 20);
+//    assert(*p2 == 20);
+//
+//    // *(++p3)
+//    *++p3;
+//    assert(arr3[0] == 10);
+//    assert(arr3[1] == 20);
+//    assert(*p3 == 20);
+
 }
 
 int main(void) {

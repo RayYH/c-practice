@@ -1,0 +1,11 @@
+version: '3'
+# apt update && apt -y install install build-essential cmake
+services:
+  bash:
+    image: ubuntu:latest
+    container_name: c-practice
+    volumes:
+      - .:/code
+    working_dir: /code
+    tty: true
+    stdin_open: true

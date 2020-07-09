@@ -3,4 +3,6 @@
 project_dir=$(dirname "$0")
 cd "$(dirname "${project_dir}")" || exit
 
-rm -rv !(".gitkeep"|"clean.sh")
+shopt -s extglob
+
+rm -rv !(".gitignore"|"clean.sh")

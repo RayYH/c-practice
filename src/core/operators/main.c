@@ -4,15 +4,15 @@
 #include "stdlib.h"
 #include "string.h"
 
+// https://www.programiz.com/c-programming/c-operators
+// https://www.geeksforgeeks.org/c-programming-language/
+
 #define END printf("\n");
 
 // string-ing operator #
 #define make_str(s) #s
 // token-pasting operator
 #define concat(a, b) a##b
-
-
-// https://www.programiz.com/c-programming/c-operators
 
 void arithmetic_operators() {
     int a = 9, b = 4, c;
@@ -248,27 +248,27 @@ void x_test() {
 void comma_operator() {
     assert(10 == (f1(), f2()));
 
-    int z = 10;
-    // not 11 but 12
-    int y = (z++, ++z);
-    assert(y == 12);
+//    int z = 10;
+//    // not 11 but 12
+//    int y = (z++, ++z);
+//    assert(y == 12);
 
-    int p = 10, q;
-    // The following is equivalent
-    // to q = p + 2 and p += 3,
-    // with two printings
-    q = (p++, printf("p = %d\n", p), ++p, printf("p = %d\n", p), p++);
+//    int p = 10, q;
+//    // The following is equivalent
+//    // to q = p + 2 and p += 3,
+//    // with two printings
+//    q = (p++, printf("p = %d\n", p), ++p, printf("p = %d\n", p), p++);
 
     // Note that last expression is evaluated
     // but side effect is not updated to q
-    printf("q = %d\n", q);
-    printf("p = %d\n", x);
+    // printf("q = %d\n", q);
+    // printf("p = %d\n", x);
 
-    int a;
-    a = 1, 2, 3;
-    assert(a == 1);
-    a = (1, 2, 3);
-    assert(a == 3);
+//    int a;
+//    a = 1, 2, 3;
+//    assert(a == 1);
+//    a = (1, 2, 3);
+//    assert(a == 3);
 
     printf("\n\n");
 
