@@ -2,9 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 project(c_practice_src_core C)
 set(CMAKE_C_STANDARD 11)
 
-add_subdirectory(assert)
-add_subdirectory(ctype)
-add_subdirectory(limits)
+# basic syntax
 add_subdirectory(arrays)
 add_subdirectory(data_types)
 add_subdirectory(enums)
@@ -19,3 +17,10 @@ add_subdirectory(pointers)
 add_subdirectory(unions)
 add_subdirectory(strings)
 add_subdirectory(ios)
+add_subdirectory(numbers)
+
+# std lib
+add_subdirectory(float)
+add_subdirectory(assert)
+add_subdirectory(ctype)
+add_subdirectory(limits)
