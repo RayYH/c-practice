@@ -68,6 +68,5 @@ CTestTestfile.cmake
 _deps
 
 # some executable
-snippet
-c_practice
-c_practice.cbp
+c_practice*
+*.cbp

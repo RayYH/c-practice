@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        name: [ubuntu-clang, ubuntu-gcc, macos-clang, macos-gcc]
+        name: [ubuntu-clang, ubuntu-gcc]
         include:
           - name: ubuntu-clang
             os: ubuntu-latest
@@ -20,18 +20,6 @@ jobs:
           - name: ubuntu-gcc
             os: ubuntu-latest
             os_label: Ubuntu
-            cxx: g++
-            cc: gcc
-
-          - name: macos-clang
-            os: macos-latest
-            os_label: MacOS
-            cxx: clang++
-            cc: clang
-
-          - name: macos-gcc
-            os: macos-latest
-            os_label: MacOS
             cxx: g++
             cc: gcc
 
@@ -46,9 +34,8 @@ jobs:
 
       - name: "Configure"
         run: |
-          cmake .
+          cd build
+          cmake ..
           make
 
-      - name: "Run tests"
-        run: |
-          ./c_practice
+      # more tests?
