@@ -1,8 +1,7 @@
 version: '3'
-# apt update && apt -y install install build-essential cmake
 services:
   bash:
-    image: ubuntu:latest
+    image: rayyounghong/ubuntu-cmake:latest
     container_name: c-practice
     volumes:
       - .:/code
