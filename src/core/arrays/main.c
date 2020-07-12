@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "time.h"
 #include "stdlib.h"
+#include "assert.h"
 
 #define ELEM_MAX 100
 #define ELEM_MIN 1
@@ -8,23 +9,70 @@
 #define START printf("\n");printf(__FUNCTION__);printf(":\n%s\n", HL);
 #define END printf("\n");
 
+void traverse_one_dimensional_array(int *arr, int size);
+
 /**
- * One-dimensional array traversal.
+ * Array declaration examples.
  */
-void traversal_one_dimensional_array() {
+void array_declaration() {
+    START
+    // Array declaration by specifying size
+    int arr1[10];
+    for (int i = 0; i < 10; i++) {
+        arr1[i] = 0;
+    }
+    traverse_one_dimensional_array(&arr1[0], 10);
+
+    // With recent C/C++ versions, we can also
+    // declare an array of user specified size
+    int n = 10;
+    int arr2[n];
+    for (int i = 0; i < 10; i++) {
+        arr2[i] = 0;
+    }
+    traverse_one_dimensional_array(&arr2[0], 10);
+
+    // Array declaration by initializing elements
+    int arr3[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    traverse_one_dimensional_array(
+            &arr3[0],
+            sizeof(arr3) / sizeof(int)
+    );
+    // Array declaration by specifying size and initializing
+    // elements
+    int arr4[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    traverse_one_dimensional_array(&arr4[0], 10);
+    END
+}
+
+/**
+ * The elements are stored at contiguous memory locations.
+ */
+void contiguous_memory_locations() {
+    int arr[5];
+    for (int i = 0; i < 4; i++) {
+        assert(((long) &arr[i + 1] - (long) &arr[i]) == sizeof(int));
+    }
+}
+
+
+/**
+ * Display one-dimensional array.
+ */
+void display_one_dimensional_array() {
     START
     int nums[5] = {12, 28, 3, 1, 9};
 
-    for (int i = 0; i < (sizeof(nums) / sizeof(int)); i++) {
+    for (int i = 0; i < (sizeof(nums) / sizeof(nums[0])); i++) {
         printf("nums[%d] is equal to %d\n", i, nums[i]);
     }
     END
 }
 
 /**
- * Two-dimensional array traversal.
+ * Display two-dimensional array.
  */
-void traversal_two_dimensional_array() {
+void display_two_dimensional_array() {
     START
     char ch[2][3] = {
             {'A', 'B', 'C'},
@@ -41,7 +89,7 @@ void traversal_two_dimensional_array() {
 }
 
 /**
- * Get input from stdin and save it to an array.
+ * Get inputs from stdin and save all elements to a fixed-size array.
  */
 void array_from_stdin() {
     START
@@ -59,17 +107,30 @@ void array_from_stdin() {
     END
 }
 
+/**
+ * A common one-dimensional array traversal method. If there's an array
+ * `arr[i]`, the accepted params are: `&arr[0]` or `(int *) arr`, `i`
+ *
+ * @param arr the first element's location
+ * @param size size of array
+ */
+void traverse_one_dimensional_array(int *arr, int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%-4d", *(arr + i));
+    }
+
+    printf("\n");
+}
 
 /**
- * A common two-dimensional array traversal method. If there's an array `arr[i][j]`, the accepted params are:
- *
- * `&arr[0][0]` or `(int *) arr`, `i`, `j`.
+ * A common two-dimensional array traversal method. If there's an array
+ * `arr[i][j]`, the accepted params are:`&arr[0][0]` or `(int *) arr`, `i`, `j`.
  *
  * @param arr the first element's location
  * @param outer_size outer size
  * @param inner_size inner size
  */
-void display_two_dimensional_array(int *arr, int outer_size, int inner_size) {
+void traverse_two_dimensional_array(int *arr, int outer_size, int inner_size) {
     for (int i = 0; i < outer_size; i++) {
         for (int j = 0; j < inner_size; j++) {
             printf("%-4d", *(arr + (i * inner_size) + j));
@@ -82,15 +143,13 @@ void display_two_dimensional_array(int *arr, int outer_size, int inner_size) {
 }
 
 /**
- * Matrix addition.
+ * a matrix addition example.
  */
 void sum_square_matrix() {
     START
     int matrix_size = 5;
-
     int a[matrix_size][matrix_size];
     int b[matrix_size][matrix_size];
-
     time_t t;
 
     srand((unsigned) time(&t));
@@ -103,9 +162,9 @@ void sum_square_matrix() {
     }
 
     printf("a: \n");
-    display_two_dimensional_array((int *) a, matrix_size, matrix_size);
+    traverse_two_dimensional_array((int *) a, matrix_size, matrix_size);
     printf("\nb: \n");
-    display_two_dimensional_array((int *) b, matrix_size, matrix_size);
+    traverse_two_dimensional_array((int *) b, matrix_size, matrix_size);
     printf("\na + b: \n");
 
     for (int i = 0; i < matrix_size; i++) {
@@ -119,7 +178,7 @@ void sum_square_matrix() {
 }
 
 /**
- * Calculate the sum of given array.
+ * Calculate the sum of elements from given array.
  *
  * @param f given array
  * @param size the size of array
@@ -172,11 +231,12 @@ int main(void) {
             {3, 4}
     };
     display_numbers(arr);
-    traversal_one_dimensional_array();
-    traversal_two_dimensional_array();
+    display_one_dimensional_array();
+    display_two_dimensional_array();
     sum_square_matrix();
     not_certain_size_array();
     array_from_stdin();
-
+    array_declaration();
+    contiguous_memory_locations();
     return 0;
 }
