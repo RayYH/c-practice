@@ -16,6 +16,7 @@
  ***********************************************************************************************************************
  */
 
+// global variable
 int z = 10;
 
 typedef long long int LL;
@@ -25,12 +26,9 @@ typedef long long int LL;
 //
 // type variable_name;
 // type variable_1_name, variable_2_name, variable_3_name;
-// see data_types() in data_types.c file
 void variables_assertion() {
-    const int a = 32;
     char b = 'G';
     LL c = 1000000;
-    assert(a == 32);
     assert(b == 'G');
     assert(c == 1000000);
     int i = 0;
@@ -53,7 +51,7 @@ void const_keyword() {
     int k = 30;
     const int *p = &j; // or you can use int const*p = &j;
     assert((*p) == 20);
-    // we cannot change value by pointer: *p = 100;
+    // we cannot change value by pointer(p of type const *): *p = 100;
     // but we can change p
     p = &k;
     assert((*p) == 30);
