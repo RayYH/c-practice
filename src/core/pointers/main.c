@@ -2,6 +2,13 @@
 #include "stdlib.h"
 #include "assert.h"
 
+/**
+ * useful links
+ *
+ * https://stackoverflow.com/questions/1576489/where-are-constant-variables-stored-in-c
+ * https://www.geeksforgeeks.org/memory-layout-of-c-program/
+ */
+
 void pointers_usage() {
     int var = 5;
     int *p;
@@ -108,6 +115,14 @@ void pointer_trick() {
     int doses[] = {1, 3, 2, 1000};
     // doses[3] == *(doses + 3) == *(3 + doses) == 3[doses]
     assert(3[doses] == 1000);
+    int a[10];
+    for (int i = 0; i < 10; i++) {
+        a[i] = i;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        assert(i == i[a]);
+    }
 }
 
 void plus_pointer() {

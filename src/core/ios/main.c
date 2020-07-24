@@ -5,7 +5,7 @@
 #define END printf("\n\n");
 
 /*
- ***********************************************************************************************************************
+ *******************************************************************************
  *
  * Useful Links:
  *
@@ -18,15 +18,16 @@
  * http://swoolley.org/man.cgi/3/printf
  * https://www.geeksforgeeks.org/how-to-print-using-printf/
  *
- ***********************************************************************************************************************
+ *******************************************************************************
  */
 
 void io_basic() {
-    char *str = "Press Ctrl+Z (windows) or Ctrl+D (Linux/OSX) to exit this echo program:\n";
+    char *str = "Press Ctrl+Z (windows) or Ctrl+D (Linux/OSX) to exit this "
+                "echo program.\n";
     // printf returns total number of Characters Printed
     assert(printf("%s", str) == strlen(str));
+    printf("input something: ");
     // scanf returns total number of Inputs Scanned successfully,
-
     // return type of getchar(), fgetc() and getc() is int, not char
     // EOF is a minus int - usually `-1`
     int in;
@@ -46,15 +47,17 @@ void scanf_usage() {
 
     char str2[128];
     printf("Enter a string (e.g. hello): ");
-    // read all characters but stops after first occurrence of `o` (o is not included)
+    // read all characters but stops after first occurrence of `o`
+    // (o is not included)
     scanf("%[^o]s", str2);
     printf("You entered: %s\n", str2);
     fflush(stdin);
 
-    // Never use gets - it is impossible to tell without knowing the data in advance how many characters
-    // gets() will read, gets() will continue to store characters past the end of the buffer, it is
-    // extremely dangerous to use, use fgets instead.
-    /* implementation of gets() function using scanset */
+    // Never use gets - it is impossible to tell without knowing the data in
+    // advance how many characters gets() will read, gets() will continue to
+    // store characters past the end of the buffer, it is extremely dangerous
+    // to use, use fgets instead.
+    /* implementation of gets() function using scan set */
     char str3[128];
     printf("Enter a string with spaces (e.g. hello world): ");
     scanf("%[^\n]s", str3);
@@ -69,8 +72,8 @@ void gets_usage() {
     char str[4];
     printf("Enter a string (e.g. something): ");
     fgets(str, 4, stdin);
-    printf("You entered: %s\n", str); // if you entered 'something', you'll get 'som' instead of 'some'
-    assert(str[3] == '\0');
+    // if you entered 'something', you'll get 'som' instead of 'some'
+    printf("You entered: %s\n", str);
     fflush(stdin);
 
     END
@@ -105,7 +108,8 @@ void print_percent_char() {
 }
 
 void fflush_stdin() {
-    // it is not recommended to use it as it is undefined behavior by language standard.
+    // it is not recommended to use it as it is undefined behavior by
+    // language standard.
     char str[20];
     int i;
     printf("Enter a string: ");

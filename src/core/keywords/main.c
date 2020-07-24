@@ -1,10 +1,9 @@
 #include "stdio.h"
-
-/**
- * 1. A valid identifier can have letters (both uppercase and lowercase letters), digits and underscores.
- * 2. The first letter of an identifier should be either a letter or an underscore.
- * 3. You cannot use keywords as identifiers.
- */
+// 1. A valid identifier can have letters(both uppercase and lowercase letters),
+//    digits and underscores.
+// 2. The first letter of an identifier should be either a letter or an
+//    underscore.
+// 3. You cannot use keywords as identifiers.
 
 /**
  * Escape Sequences	Character
@@ -43,7 +42,8 @@ void print_character_set() {
 
 void print_special_characters() {
     char chs[29] = {
-            ',', '<', '>', '.', '_', '(', ')', ';', '$', ':', '%', '[', ']', '#', '?', '\'', '&', '{', '}', '"', '^',
+            ',', '<', '>', '.', '_', '(', ')', ';', '$', ':', '%', '[', ']',
+            '#', '?', '\'', '&', '{', '}', '"', '^',
             '!', '*', '/', '|', '-', '\\', '~', '+',
     };
     int size = sizeof(chs) / sizeof(char);

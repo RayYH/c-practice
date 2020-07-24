@@ -38,7 +38,8 @@ void struct_usage() {
     book1.author = person1;
     book1.price = 12.7f;
 
-    printf("The price of %s's Book '%s' is %.2f.\n", book1.author.name, book1.title, book1.price);
+    printf("The price of %s's Book '%s' is %.2f.\n", book1.author.name,
+           book1.title, book1.price);
 
     struct Person *person_ptr, person3;
     person_ptr = &person3;

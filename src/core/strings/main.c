@@ -33,7 +33,7 @@ void print_string(char str[]) {
  */
 void read_string_from_stdin() {
     char str[50];
-    printf("Enter a string: ");
+    printf("Enter a string contains space: ");
     scanf("%s", str);
     print_string(str);
 
@@ -43,7 +43,7 @@ void read_string_from_stdin() {
 int main(void) {
 
     initialize_a_string();
-    //read_string_from_stdin();
+    read_string_from_stdin();
 
     return 0;
 }

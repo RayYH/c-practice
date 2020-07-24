@@ -4,9 +4,11 @@
 // The keyword `enum` is used to declare new enumeration types in C and C++.
 // enum flag{constant_1, constant_2, constant_3, ...}
 
-// By default, the values of the constants are as follows: constant_1 = 0, constant_2 = 1, constant_3 = 2 and so on.
+// By default, the values of the constants are as follows:
+// constant_1 = 0, constant_2 = 1, constant_3 = 2 and so on.
 
-// We can declare an enum value: enum flag constant_x, while use constant_x directly is also allowed.
+// We can declare an enum value: enum flag constant_x,
+// while use constant_x directly is also allowed.
 
 /*
  * Enum vs Macro
@@ -31,10 +33,13 @@ enum week {
     Saturday
 };
 
-// If we do not explicitly assign values to enum names, the compiler by default assigns values from 0.
-// We can assign values to some name in any order. All unassigned names get value as value of previous name plus one.
-// The value assigned to enum names must be a valid integer, i.e., the value must be in range from minimum possible
-// integer value to maximum possible integer value.
+// If we do not explicitly assign values to enum names, the compiler by default
+// assigns values from 0.
+// We can assign values to some name in any order.
+// All unassigned names get value as value of previous name plus one.
+// The value assigned to enum names must be a valid integer, i.e.,
+// the value must be in range from minimum possible integer value to maximum
+// possible integer value.
 enum day {
     sunday = 1,
     monday, // monday = 2
@@ -45,10 +50,11 @@ enum day {
     saturday
 };
 
-// You may noticed that we capitalized the first letter in each word of `week` enums, while the first letter in each
-// word of day is lower. This is because all enum constants must be unique in their scope.
-// You can define a same enum inside `main.c` file, the compiler will not throw an error, but inside current file,
-// same enum name is not allowed!
+// You may noticed that we capitalized the first letter in each word
+// of `week` enums, while the first letter in each word of day is lower. This
+// is because all enum constants must be unique in their scope.
+// You can define a same enum inside `main.c` file, the compiler will not
+// throw an error, but inside current file, same enum name is not allowed!
 
 enum suit {
     club = 0,

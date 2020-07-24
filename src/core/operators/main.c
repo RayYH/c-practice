@@ -13,6 +13,9 @@
 #define make_str(s) #s
 // token-pasting operator
 #define concat(a, b) a##b
+// define (one two three);
+#define parenthesis (one, two, three);
+#define no_parenthesis one, two, three;
 
 void arithmetic_operators() {
     int a = 9, b = 4, c;
@@ -147,13 +150,14 @@ void bitwise_operators() {
 
     /**
      * Two's complement is an operation on binary numbers.
-     * The 2's complement of a number is equal to the complement of that number plus 1.
+     * The 2's complement of a number is equal to
+     * the complement of that number plus 1.
      *
-     * Decimal         Binary           2's complement
-     *   0            00000000           -(11111111+1) = -00000000 = -0(decimal)
-     *   1            00000001           -(11111110+1) = -11111111 = -256(decimal)
-     *   12           00001100           -(11110011+1) = -11110100 = -244(decimal)
-     *   220          11011100           -(00100011+1) = -00100100 = -36(decimal)
+     * Decimal      Binary           2's complement
+     *   0          00000000         -(11111111+1) = -00000000 = -0(decimal)
+     *   1          00000001         -(11111110+1) = -11111111 = -256(decimal)
+     *   12         00001100         -(11110011+1) = -11110100 = -244(decimal)
+     *   220        11011100         -(00100011+1) = -00100100 = -36(decimal)
      *
      * Note: Overflow is ignored while computing 2's complement.
      *
@@ -218,6 +222,7 @@ void find_odd_test() {
     assert(find_odd(arr, n) == 90);
 }
 
+// Function to check if given value is an even number.
 bool is_even(int x) {
     return (x & 1) ? true : false;
 }
@@ -248,31 +253,35 @@ void x_test() {
 void comma_operator() {
     assert(10 == (f1(), f2()));
 
-//    int z = 10;
-//    // not 11 but 12
-//    int y = (z++, ++z);
-//    assert(y == 12);
+    int z = 10;
+    // not 11 but 12
+    // calculate all statements then return right variable's value
+    int y = (z++, ++z);
+    assert(y == 12); // equals to ++z
+    assert(z == 12);
+    z = 10;
+    int y2 = (z++, z++);
+    assert(y2 == 11); // equals to z++
+    assert(z == 12);
 
-//    int p = 10, q;
-//    // The following is equivalent
-//    // to q = p + 2 and p += 3,
-//    // with two printings
-//    q = (p++, printf("p = %d\n", p), ++p, printf("p = %d\n", p), p++);
+    int p = 10, q;
+    // The following is equivalent to
+    // q = p + 2 and p += 3,
+    // with two printings
+    // the exec order is from left to right
+    q = (p++, printf("p = %d\n", p), ++p, printf("p = %d\n", p), p++);
+    // q --> p++ (so q must be equal to p-1)
+    assert(p == 13);
+    assert(q == 12);
 
-    // Note that last expression is evaluated
-    // but side effect is not updated to q
-    // printf("q = %d\n", q);
-    // printf("p = %d\n", x);
-
-//    int a;
-//    a = 1, 2, 3;
-//    assert(a == 1);
-//    a = (1, 2, 3);
-//    assert(a == 3);
+    int one = 1, two = 2, three = 3;
+    int a;
+    a = no_parenthesis
+    assert(a == one);
+    a = parenthesis
+    assert(a == three);
 
     printf("\n\n");
-
-
 }
 
 void chaining_of_comparison_operators() {

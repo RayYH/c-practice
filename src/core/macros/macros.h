@@ -4,9 +4,11 @@
 #include "stdio.h"
 #include "assert.h"
 #include "string.h"
-// After the pre-processing of a C program, a .i file is generated which is passed to the compiler for compilation.
+// After the pre-processing of a C program, a .i file is generated which is
+// passed to the compiler for compilation.
 
-// In C, for macros with arguments, there can’t be any space between macro name and open parenthesis.
+// In C, for macros with arguments, there can’t be any space between macro name
+// and open parenthesis.
 #define MACRO_INTEGER_MAX 100
 #define INCREMENT(x) ++x
 #define MULTIPLY(x, y) x*y

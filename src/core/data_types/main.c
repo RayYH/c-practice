@@ -88,7 +88,8 @@ void integer_promotions() {
     printf("%c: %d\n", e, e);
     printf("%c: %d\n", f, f);
 
-    // when comparison operation is performed on e & f, they are first converted to int.
+    // when comparison operation is performed on e & f, they are first
+    // converted to int.
     assert(e != f);
 
     printf("\n");
