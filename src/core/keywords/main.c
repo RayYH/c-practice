@@ -1,4 +1,5 @@
 #include "stdio.h"
+#include "core.h"
 // 1. A valid identifier can have letters(both uppercase and lowercase letters),
 //    digits and underscores.
 // 2. The first letter of an identifier should be either a letter or an
@@ -23,63 +24,69 @@
 
 void print_section(int first, int second) {
 
-    if (first > second) {
-        return;
-    }
+  if (first > second) {
+    return;
+  }
 
-    for (int i = first; i < second; i++) {
-        printf("%c ", i);
-    }
+  for (int i = first; i < second; i++) {
+    printf("%c ", i);
+  }
 }
 
 void print_character_set() {
-    print_section('A', 'Z');
-    print_section('a', 'z');
-    print_section('0', '9');
+  START
 
-    printf("\n\n");
+  print_section('A', 'Z');
+  print_section('a', 'z');
+  print_section('0', '9');
+
+  END
 }
 
 void print_special_characters() {
-    char chs[29] = {
-            ',', '<', '>', '.', '_', '(', ')', ';', '$', ':', '%', '[', ']',
-            '#', '?', '\'', '&', '{', '}', '"', '^',
-            '!', '*', '/', '|', '-', '\\', '~', '+',
-    };
-    int size = sizeof(chs) / sizeof(char);
-    for (int i = 0; i < size; i++) {
-        printf("%c ", chs[i]);
-    }
+  START
 
-    printf("\n\n");
+  char chs[29] = {
+      ',', '<', '>', '.', '_', '(', ')', ';', '$', ':', '%', '[', ']',
+      '#', '?', '\'', '&', '{', '}', '"', '^',
+      '!', '*', '/', '|', '-', '\\', '~', '+',
+  };
+  int size = sizeof(chs) / sizeof(char);
+  for (int i = 0; i < size; i++) {
+    printf("%c ", chs[i]);
+  }
+
+  END
 }
 
 void print_c_keywords() {
-    char *chs[32] = {
-            "auto", "double", "int", "struct",
-            "break", "else", "long", "switch",
-            "case", "enum", "register", "typedef",
-            "char", "extern", "return", "union",
-            "continue", "for", "signed", "void",
-            "do", "if", "static", "while",
-            "default", "goto", "sizeof", "volatile",
-            "const", "float", "short", "unsigned",
-    };
+  START
 
-    for (int i = 0; i < 32; i++) {
-        if (i % 4 == 0) {
-            printf("\n");
-        }
-        printf("%-12s ", chs[i]);
+  char *chs[32] = {
+      "auto", "double", "int", "struct",
+      "break", "else", "long", "switch",
+      "case", "enum", "register", "typedef",
+      "char", "extern", "return", "union",
+      "continue", "for", "signed", "void",
+      "do", "if", "static", "while",
+      "default", "goto", "sizeof", "volatile",
+      "const", "float", "short", "unsigned",
+  };
+
+  for (int i = 0; i < 32; i++) {
+    if (i % 4 == 0) {
+      printf("\n");
     }
+    printf("%-12s ", chs[i]);
+  }
 
-    printf("\n\n");
+  END
 }
 
 int main(void) {
-    print_character_set();
-    print_special_characters();
-    print_c_keywords();
+  print_character_set();
+  print_special_characters();
+  print_c_keywords();
 
-    return 0;
+  return 0;
 }

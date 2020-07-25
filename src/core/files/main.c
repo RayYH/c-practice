@@ -44,35 +44,31 @@ static char tmp_file[100] = "/tmp/c-practice-core-files.txt";
  */
 
 void file_usage() {
-    int num;
-    FILE *fptr;
+  int num = 123;
+  FILE *fptr;
 
-    fptr = fopen(tmp_file, "w");
+  fptr = fopen(tmp_file, "w");
 
-    if (fptr == NULL) {
-        printf("Error!");
-        exit(1);
-    }
+  if (fptr == NULL) {
+    printf("Error!");
+    exit(1);
+  }
 
-    printf("Enter num: ");
-    scanf("%d", &num);
+  fprintf(fptr, "%d", num);
+  fclose(fptr);
 
-    fprintf(fptr, "%d", num);
-    fclose(fptr);
-
-    // read file
-    if ((fptr = fopen(tmp_file, "r")) == NULL) {
-        printf("Error occurred when opening a file.");
-        exit(1);
-    }
-    fscanf(fptr, "%d", &num);
-    printf("Value of n = %d", num);
-    fclose(fptr);
+  // read file
+  if ((fptr = fopen(tmp_file, "r")) == NULL) {
+    printf("Error occurred when opening a file.");
+    exit(1);
+  }
+  fscanf(fptr, "%d", &num);
+  printf("Value of n = %d", num);
+  fclose(fptr);
 }
 
-
 int main(void) {
-    file_usage();
+  file_usage();
 
-    return 0;
+  return 0;
 }

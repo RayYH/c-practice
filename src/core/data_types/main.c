@@ -2,6 +2,7 @@
 #include "limits.h"
 #include "assert.h"
 #include "stdbool.h"
+#include "core.h"
 
 /**
  * Type     	            Size (bytes)        	        Format Specifier
@@ -21,84 +22,104 @@
  */
 
 void data_types() {
-    // define a constant - PI can't be modified
-    const double PI = 3.14;
-    // integer
-    int age = 24;
-    // char array - strings
-    char name[] = "Ray";
-    // char
-    char grade = 'A';
-    // float
-    float gpa = 3.9f;
-    // double
-    double height = 174.80;
-    printf("PI = %g\n", PI);
-    printf("%s's age is %d\n", name, age);
-    printf("%s's gpa is %f\n", name, gpa);
-    printf("%s's height is %.1f\n", name, height);
-    printf("%s's grade is %c\n", name, grade);
+  START
 
-    printf("\n");
+  // define a constant - PI can't be modified
+  const double PI = 3.14;
+  // integer
+  int age = 24;
+  // char array - strings
+  char name[] = "Ray";
+  // char
+  char grade = 'A';
+  // float
+  float gpa = 3.9f;
+  // double
+  double height = 174.80;
+  printf("PI = %g\n", PI);
+  printf("%s's age is %d\n", name, age);
+  printf("%s's gpa is %f\n", name, gpa);
+  printf("%s's height is %.1f\n", name, height);
+  printf("%s's grade is %c\n", name, grade);
 
-    // notice: sizeof is an operator
-    printf("sizeof char:          %lu\n", sizeof(char));
-    printf("sizeof short int:     %lu\n", sizeof(short int));
-    printf("sizeof int:           %lu\n", sizeof(int));
-    printf("sizeof float:         %lu\n", sizeof(float));
-    printf("sizeof double:        %lu\n", sizeof(double));
-    printf("sizeof long int:      %lu\n", sizeof(long int));
-    printf("sizeof long long int: %lu\n", sizeof(long long int));
-    printf("sizeof long double:   %lu\n", sizeof(long double));
+  END
+}
 
-    printf("\n");
-    // include stdbool.h we can use true and false
-    printf("true:  %d\n", true);
-    printf("false: %d\n", false);
+void sizeof_data_types() {
+  START
 
-    printf("\n");
+  // notice: sizeof is an operator
+  printf("sizeof char:          %lu\n", sizeof(char));
+  printf("sizeof short int:     %lu\n", sizeof(short int));
+  printf("sizeof int:           %lu\n", sizeof(int));
+  printf("sizeof float:         %lu\n", sizeof(float));
+  printf("sizeof double:        %lu\n", sizeof(double));
+  printf("sizeof long int:      %lu\n", sizeof(long int));
+  printf("sizeof long long int: %lu\n", sizeof(long long int));
+  printf("sizeof long double:   %lu\n", sizeof(long double));
+
+  END
+}
+
+void use_boolean_type() {
+  START
+  printf("include stdbool.h we can use true and false macros:\n");
+
+  // include stdbool.h we can use true and false
+  printf("true:  %d\n", true);
+  printf("false: %d\n", false);
+
+  END
 }
 
 void data_types_overflow() {
-    int maxInt = INT_MAX;
-    int maxIntPlusOne = maxInt + 1;
-    assert(maxIntPlusOne == INT_MIN);
-    printf("int: %d + 1 = %d\n", maxInt, maxIntPlusOne);
+  START
 
-    long maxLong = LONG_MAX;
-    long maxLongPlusOne = maxLong + 1;
-    printf("long: %ld + 1 = %ld\n", maxLong, maxLongPlusOne);
-    assert(maxLongPlusOne == LONG_MIN);
+  int maxInt = INT_MAX;
+  int maxIntPlusOne = maxInt + 1;
+  assert(maxIntPlusOne == INT_MIN);
+  printf("int: %d + 1 = %d\n", maxInt, maxIntPlusOne);
 
-    printf("\n");
+  long maxLong = LONG_MAX;
+  long maxLongPlusOne = maxLong + 1;
+  printf("long: %ld + 1 = %ld\n", maxLong, maxLongPlusOne);
+  assert(maxLongPlusOne == LONG_MIN);
+
+  printf("\n");
+
+  END
 }
 
 void integer_promotions() {
-    char a = 30, b = 40, c = 10;
-    // a*b=1200 > 127
-    char d = (a * b) / c;
-    printf("%d\n", d); // still works
+  START
 
-    char e = 0xfb;
-    unsigned char f = 0xfb;
+  char a = 30, b = 40, c = 10;
+  // a*b=1200 > 127
+  char d = (a * b) / c;
+  printf("(char)30 * (char)40 / char(10) = %d\n", d); // still works
 
-    // hex: 1111 1011
-    // 2's complement of signed numbers: 10000101 = -5
+  char e = 0xfb;
+  unsigned char f = 0xfb;
 
-    printf("%c: %d\n", e, e);
-    printf("%c: %d\n", f, f);
+  // hex: 1111 1011
+  // 2's complement of signed numbers: 10000101 = -5
 
-    // when comparison operation is performed on e & f, they are first
-    // converted to int.
-    assert(e != f);
+  printf("(char)(0xfb) = %c, (int)(0xfb) = %d\n", e, e);
+  printf("(unsigned char)(0xfb) = %c, (unsigned int)(0xfb) = %d\n", f, f);
 
-    printf("\n");
+  // when comparison operation is performed on e & f, they are first
+  // converted to int.
+  assert(e != f);
+
+  END
 }
 
 int main(void) {
-    data_types();
-    data_types_overflow();
-    integer_promotions();
+  data_types();
+  use_boolean_type();
+  sizeof_data_types();
+  data_types_overflow();
+  integer_promotions();
 
-    return 0;
+  return 0;
 }

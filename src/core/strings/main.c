@@ -8,16 +8,16 @@
  * terminated with a special character ‘\0’.
  */
 void initialize_a_string() {
-    char str1[] = "Hello World!";
-    PRINT_STRING(str1)
-    char str2[50] = "Hello World!";
-    PRINT_STRING(str2)
-    char str3[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd',
+  char str1[] = "Hello World!";
+  PRINT_STRING(str1)
+  char str2[50] = "Hello World!";
+  PRINT_STRING(str2)
+  char str3[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd',
+                 '!', '\0'};
+  PRINT_STRING(str3)
+  char str4[13] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd',
                    '!', '\0'};
-    PRINT_STRING(str3)
-    char str4[13] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd',
-                     '!', '\0'};
-    PRINT_STRING(str4)
+  PRINT_STRING(str4)
 }
 
 /**
@@ -25,25 +25,25 @@ void initialize_a_string() {
  * @param str string
  */
 void print_string(char str[]) {
-    printf("String is : %s\n", str);
+  printf("String is : %s\n", str);
 }
 
 /**
  * Read string from stdin.
  */
 void read_string_from_stdin() {
-    char str[50];
-    printf("Enter a string contains space: ");
-    scanf("%s", str);
-    print_string(str);
+  char str[50];
+  printf("Enter a string contains space: ");
+  scanf("%s", str);
+  print_string(str);
 
-    printf("\n");
+  printf("\n");
 }
 
 int main(void) {
 
-    initialize_a_string();
-    read_string_from_stdin();
+  initialize_a_string();
+  read_string_from_stdin();
 
-    return 0;
+  return 0;
 }

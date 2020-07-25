@@ -2,13 +2,13 @@
 #include "stdio.h"
 
 int main(void) {
-    int a = 10;
-    int *b = NULL;
-    int *c = NULL;
-    b = &a;
+  int a = 10;
+  int *b = NULL;
+  int *c = NULL;
+  b = &a;
 
-    assert(b != NULL);
-    assert(c == NULL);
+  assert(b != NULL);
+  assert(c == NULL);
 
-    return 0;
+  return 0;
 }
