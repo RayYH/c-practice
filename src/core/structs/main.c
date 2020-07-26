@@ -1,8 +1,8 @@
 #include "stdio.h"
 #include "string.h"
 #include "stdlib.h"
-
-#define END printf("\n\n");
+#include "core.h"
+#include "assert.h"
 
 struct Person {
   char name[50];
@@ -21,60 +21,77 @@ typedef struct Complex {
   float imag;
 } Complex;
 
-void struct_usage() {
-  char name[20];
+struct Employee {
+  int emp_id;
+  int length;
+  // In gcc, when we create an array of zero length, it is considered as array
+  // of incomplete type that’s why gcc reports its size as “0” bytes.
+  // When we create array of zero length inside structure, it must be (and only)
+  // last member of structure.
+  char name[0];
+};
 
+void add_numbers(Complex c1, Complex c2, Complex *result);
+
+void struct_usage() {
   struct Person person1, person2;
+
   strcpy(person1.name, "Ray");
   person1.age = 24;
   strcpy(person2.name, "Tom");
   person2.age = 25;
 
-  printf("%s's age is %d.\n", person1.name, person1.age);
-  printf("%s's age is %d.\n", person2.name, person2.age);
+  assert(strcmp(person1.name, "Ray") == 0);
+  assert(strcmp(person2.name, "Tom") == 0);
+  assert(person1.age == 24);
+  assert(person2.age == 25);
 
   Book book1;
   strcpy(book1.title, "Book Title!");
   book1.author = person1;
   book1.price = 12.7f;
-
-  printf("The price of %s's Book '%s' is %.2f.\n", book1.author.name,
-         book1.title, book1.price);
+  assert(strcmp(book1.author.name, "Ray") == 0);
+  assert(book1.price == 12.7f);
 
   struct Person *person_ptr, person3;
   person_ptr = &person3;
-  printf("Enter name: ");
-  scanf("%s", name);
-  strcpy(person_ptr->name, name);
-
-  printf("Enter age: ");
-  scanf("%d", &person_ptr->age);
-
-  printf("Displaying:\n");
-
   // person_ptr->name is equivalent to (*person_ptr).name
-  printf("Name: %s\n", person_ptr->name);
-  printf("Age: %d\n", person_ptr->age);
-
-  END
+  strcpy(person_ptr->name, "Ray");
+  assert(strcmp(person_ptr->name, "Ray") == 0);
+  person_ptr->age = 24;
+  assert(person_ptr->age == 24);
 }
 
-void memory_allocation() {
-  struct Person *ptr;
-  int i, n;
+void array_of_structure() {
+  struct Complex arr[2] =
+      {
+          {.real = 1.0, .imag = 2.0},
+          {.real = 2.0, .imag = 4.0}
+      };
+  assert(arr[0].real == 1.0);
+  assert(arr[0].imag == 2.0);
+  Complex result;
+  add_numbers(arr[0], arr[1], &result);
+  assert(result.real == 3.0);
+  assert(result.imag == 6.0);
+}
 
-  printf("Enter the number of persons: ");
-  scanf("%d", &n);
+void struct_with_pointer() {
+  START
+
+  struct Person *ptr;
+  int i, n = 3;
+  char name[20];
+  char ch[1] = {'1'};
+
   // allocating memory for n numbers of struct Person
   ptr = (struct Person *) malloc(n * sizeof(struct Person));
   for (i = 0; i < n; ++i) {
-    printf("Enter first name and age respectively: ");
-    // To access members of 1st struct Person,
-    // ptr->name and ptr->age is used
-
-    // To access members of 2nd struct Person,
-    // (ptr+1)->name and (ptr+1)->age is used
-    scanf("%s %d", (ptr + i)->name, &(ptr + i)->age);
+    strcpy(name, "person");
+    strcat(name, ch);
+    ch[0]++;
+    strcpy((ptr + i)->name, name);
+    (ptr + i)->age = 20 + i;
   }
 
   printf("Displaying Information:\n");
@@ -85,37 +102,54 @@ void memory_allocation() {
   END
 }
 
+void struct_hack() {
+  struct Employee e;
+  assert(sizeof(e) == 8);
+  // valid, now name is of length 128
+  struct Employee *employee = malloc(sizeof(*employee) + sizeof(char) * 128);
+  employee->emp_id = 1;
+  employee->length = 128;
+  strcpy(employee->name, "Rayyh");
+  assert(employee->emp_id == 1);
+  assert(employee->length == 128);
+  assert(strcmp(employee->name, "Rayyh") == 0);
+}
+
 void add_numbers(Complex c1, Complex c2, Complex *result) {
   result->real = c1.real + c2.real;
   result->imag = c1.imag + c2.imag;
 }
 
 void passing_struct_by_ref() {
-  Complex c1, c2, result;
-
-  printf("For first number,\n");
-  printf("Enter real part: ");
-  scanf("%f", &c1.real);
-  printf("Enter imaginary part: ");
-  scanf("%f", &c1.imag);
-
-  printf("For second number, \n");
-  printf("Enter real part: ");
-  scanf("%f", &c2.real);
-  printf("Enter imaginary part: ");
-  scanf("%f", &c2.imag);
-
+  Complex c1 = {
+      1.0, 2.0
+  };
+  Complex c2 = {
+      2.0, 4.0
+  };
+  Complex result;
   add_numbers(c1, c2, &result);
-  printf("\nresult.real = %.1f\n", result.real);
-  printf("result.imag = %.1f", result.imag);
-
-  END
+  assert(result.real == 3.0);
+  assert(result.imag == 6.0);
+  Complex c3 = {
+      .real= 1.0,
+      .imag = 2.0
+  };
+  Complex c4 = {
+      .real = 2.0,
+      .imag = 4.0
+  };
+  add_numbers(c3, c4, &result);
+  assert(result.real == 3.0);
+  assert(result.imag == 6.0);
 }
 
 int main(void) {
   struct_usage();
-  memory_allocation();
+  struct_with_pointer();
   passing_struct_by_ref();
+  array_of_structure();
+  struct_hack();
 
   return 0;
 }

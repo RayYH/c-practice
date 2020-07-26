@@ -16,8 +16,8 @@
 - [x] strings
 - [ ] files
 - [x] macros
-- [ ] structs
-- [ ] unions
+- [x] structs
+- [x] unions
 
 ### Std
 
