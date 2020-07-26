@@ -7,18 +7,18 @@ typedef union point {
 } Point;
 
 union test1 {
-  __unused int x;
-  __unused int y;
+  int x;
+  int y;
 } Test1;
 
 union test2 {
-  __unused int x;
-  __unused char y;
+  int x;
+  char y;
 } Test2;
 
 union test3 {
-  __unused int arr[10];
-  __unused char y;
+  int arr[10];
+  char y;
 } Test3;
 
 union test {
