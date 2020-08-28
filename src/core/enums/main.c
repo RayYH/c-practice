@@ -14,12 +14,18 @@
 // 1. Enums follow scope rules.
 // 2. Enum variables are automatically assigned values.
 
+/**
+ * state enums.
+ */
 enum state {
   Working = 1,
   Failed = 0,
   Frozen = 0 // Two enum names can have same value.
 };
 
+/**
+ * week enums.
+ */
 enum week {
   Sunday,
   Monday,
@@ -36,13 +42,13 @@ enum week {
 // All unassigned names get value as value of previous name plus one.
 // The value assigned to enum names must be a valid integer.
 enum day {
-  sunday = 1,
-  monday, // monday = 2
-  tuesday = 5,
-  wednesday, // 6
-  thursday = 10,
-  friday,
-  saturday
+  sunday = 1,    // 1
+  monday,        // 2
+  tuesday = 5,   // 5
+  wednesday,     // 6
+  thursday = 10, // 10
+  friday,        // 11
+  saturday       // 12
 };
 
 // You may noticed that we capitalized the first letter in each word
@@ -57,6 +63,9 @@ enum suit {
   spades = 3
 } card; // You can also use an alias.
 
+/**
+ * Basic enum tests.
+ */
 void enum_test() {
   enum week today;
   today = Saturday;
@@ -82,6 +91,11 @@ void enum_test() {
   assert(spades == 3);
 }
 
+/**
+ * Check given number via declared numbers.
+ *
+ * @param i given number
+ */
 void switch_enums(int i) {
   enum week today;
   today = i % 7;
@@ -106,6 +120,9 @@ void switch_enums(int i) {
   }
 }
 
+/**
+ * Pass int value to switch_enums function.
+ */
 void switch_enums_test() {
   switch_enums(1);
   switch_enums(2);

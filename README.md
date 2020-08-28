@@ -13,10 +13,6 @@ $ cd build && cmake ..
 $ make
 ```
 
-## ToC
-
-See [Toc](toc.md).
-
 ## LICENSE
 
 [MIT](LICENSE).

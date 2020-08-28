@@ -1,4 +1,3 @@
-#include "string.h"
 #include "stdio.h"
 
 #define PRINT_STRING(str) printf("%s\n", str);
@@ -21,8 +20,9 @@ void initialize_a_string() {
 }
 
 /**
- * Print string.
- * @param str string
+ * Print a string.
+ *
+ * @param str string (an array of chars)
  */
 void print_string(char str[]) {
   printf("String is : %s\n", str);

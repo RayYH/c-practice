@@ -50,7 +50,6 @@
 #   error "Unknown compiler"
 #endif
 
-
 #include <stdio.h>         /* for convenience */
 #include <stdlib.h>        /* for convenience */
 #include <stddef.h>        /* for offsetof */
@@ -99,7 +98,8 @@ ssize_t writen(int, const void *, size_t);    /* {Prog readn_writen} */
 
 int fd_pipe(int *);                    /* {Prog sock_fdpipe} */
 int recv_fd(int, ssize_t (*func)(int,
-                                 const void *, size_t));    /* {Prog recvfd_sockets} */
+                                 const void *,
+                                 size_t));    /* {Prog recvfd_sockets} */
 int send_fd(int, int);                    /* {Prog sendfd_sockets} */
 int send_err(int, int,
              const char *);            /* {Prog senderr} */

@@ -1,14 +1,13 @@
-#include "stdio.h"
-#include "core.h"
-// 1. A valid identifier can have letters(both uppercase and lowercase letters),
-//    digits and underscores.
-// 2. The first letter of an identifier should be either a letter or an
-//    underscore.
-// 3. You cannot use keywords as identifiers.
-
 /**
+ *******************************************************************************
+ * 1. A valid identifier can have letters(both uppercase and lowercase
+ * letters), digits and underscores.
+ * 2. The first letter of an identifier should be either a letter or an
+ * underscore.
+ * 3. You cannot use keywords as identifiers.
+ *******************************************************************************
  * Escape Sequences	Character
- *
+ *******************************************************************************
  * \b	Backspace
  * \f	Form feed
  * \n	Newline
@@ -20,8 +19,17 @@
  * \"	Double quotation mark
  * \?	Question mark
  * \0	Null character
+ *******************************************************************************
  */
+#include "stdio.h"
+#include "core.h"
 
+/**
+ * Print a section of characters.
+ *
+ * @param first first character
+ * @param second second character
+ */
 void print_section(int first, int second) {
 
   if (first > second) {
@@ -33,6 +41,9 @@ void print_section(int first, int second) {
   }
 }
 
+/**
+ * Print character sections.
+ */
 void print_character_set() {
   START
 
@@ -43,6 +54,9 @@ void print_character_set() {
   END
 }
 
+/**
+ * Print some special characters.
+ */
 void print_special_characters() {
   START
 
@@ -59,6 +73,9 @@ void print_special_characters() {
   END
 }
 
+/**
+ * Print all c keywords.
+ */
 void print_c_keywords() {
   START
 

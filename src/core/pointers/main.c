@@ -1,8 +1,3 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "assert.h"
-#include "core.h"
-
 /**
  * useful links
  *
@@ -10,6 +5,14 @@
  * https://www.geeksforgeeks.org/memory-layout-of-c-program/
  */
 
+#include "stdio.h"
+#include "stdlib.h"
+#include "assert.h"
+#include "core.h"
+
+/**
+ * Pointers can be used for getting a variable's address.
+ */
 void pointers_usage() {
   START
 
@@ -37,6 +40,9 @@ void pointers_usage() {
   END
 }
 
+/**
+ * arr[] is a pointer, so arr[i] equals to *(arr+i).
+ */
 void pointers_with_arrays() {
   START
 
@@ -62,6 +68,9 @@ void pointers_with_arrays() {
   END
 }
 
+/**
+ * Some function can be used for managing memory allocation.
+ */
 void memory_usage() {
   START
 
@@ -117,6 +126,9 @@ void memory_usage() {
   END
 }
 
+/**
+ * A trick example.
+ */
 void pointer_trick() {
   int doses[] = {1, 3, 2, 1000};
   // doses[3] == *(doses + 3) == *(3 + doses) == 3[doses]
@@ -131,6 +143,9 @@ void pointer_trick() {
   }
 }
 
+/**
+ * Pointers can be used for addition and subtraction.
+ */
 void plus_pointer() {
   char carr[] = "hello";
   char *p = carr;

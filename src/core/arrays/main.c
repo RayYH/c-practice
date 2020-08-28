@@ -5,7 +5,7 @@
 #include "core.h"
 
 /**
- * Traverse one dimensional array.
+ * Traverse one-dimensional array.
  *
  * @param arr the location of given array
  * @param size the array size
@@ -13,7 +13,7 @@
 void traverse_one_dimensional_array(int *arr, int size);
 
 /**
- * Array declaration examples.
+ * A simple example of array declaration.
  */
 void array_declaration() {
   START
@@ -30,7 +30,7 @@ void array_declaration() {
   // declare an array of user-specified size
   int array_size = 10;
   int arr2[array_size];
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < array_size; i++) {
     arr2[i] = 0;
   }
 
@@ -68,8 +68,8 @@ void contiguous_memory_locations() {
 void display_one_dimensional_array() {
   START
 
-  int nums[5] = {12, 28, 3, 1, 9};
   int size = 5;
+  int nums[5] = {12, 28, 3, 1, 9};
 
   assert ((sizeof(nums) / sizeof(nums[0])) == size);
 
@@ -235,7 +235,7 @@ void not_certain_size_array() {
 }
 
 /**
- * We can pass whole array as a parameter to a function.
+ * We can pass a whole array instead of a pointer to a function.
  *
  * @param num array
  */

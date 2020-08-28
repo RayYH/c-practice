@@ -3,6 +3,9 @@
 #include "stdlib.h"
 #include "core.h"
 
+/**
+ * Show if-elseif-else condition statements.
+ */
 void if_condition() {
   START
 
@@ -26,6 +29,9 @@ void if_condition() {
   END
 }
 
+/**
+ * Show for loop statements.
+ */
 void for_loop() {
   START
 
@@ -40,6 +46,9 @@ void for_loop() {
   END
 }
 
+/**
+ * show while loop statements.
+ */
 void while_loop() {
   START
 
@@ -56,6 +65,9 @@ void while_loop() {
   END
 }
 
+/**
+ * Show do-while loop statements.
+ */
 void do_while_loop() {
   START
 
@@ -70,6 +82,9 @@ void do_while_loop() {
   END
 }
 
+/**
+ * Show break and continue statements.
+ */
 void break_continue() {
   START
 
@@ -95,6 +110,7 @@ void break_continue() {
 }
 
 /**
+ * Show switch-case statements.
  *
  * @param operator given operator + - * /
  * @param n1 number1
@@ -131,6 +147,9 @@ void switch_case_test() {
   END
 }
 
+/**
+ * Show goto statements.
+ */
 void goto_statement() {
   START
 

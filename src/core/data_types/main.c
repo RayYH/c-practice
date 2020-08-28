@@ -1,10 +1,5 @@
-#include "stdio.h"
-#include "limits.h"
-#include "assert.h"
-#include "stdbool.h"
-#include "core.h"
-
 /**
+ *******************************************************************************
  * Type     	            Size (bytes)        	        Format Specifier
  * int      	            at least 2, usually 4       	%d, %i
  * char     	            1       	                    %c
@@ -19,8 +14,18 @@
  * signed char      	    1       	                    %c
  * unsigned char        	1       	                    %c
  * long double      	    at least 10, usually 12 or 16   %Lf
+ *******************************************************************************
  */
 
+#include "stdio.h"
+#include "limits.h"
+#include "assert.h"
+#include "stdbool.h"
+#include "core.h"
+
+/**
+ * Common data types usage.
+ */
 void data_types() {
   START
 
@@ -45,6 +50,9 @@ void data_types() {
   END
 }
 
+/**
+ * Sizeof common data types.
+ */
 void sizeof_data_types() {
   START
 
@@ -61,6 +69,9 @@ void sizeof_data_types() {
   END
 }
 
+/**
+ * Boolean type.
+ */
 void use_boolean_type() {
   START
   printf("include stdbool.h we can use true and false macros:\n");
@@ -72,6 +83,9 @@ void use_boolean_type() {
   END
 }
 
+/*
+ * When overflow.
+ */
 void data_types_overflow() {
   START
 
@@ -90,22 +104,47 @@ void data_types_overflow() {
   END
 }
 
+/**
+ * Integer promotions.
+ */
 void integer_promotions() {
   START
 
+  // sizeof(char) = 1Byte = 8 bit
+  // the greatest value of a variable with char type is 127
   char a = 30, b = 40, c = 10;
   // a*b=1200 > 127
   char d = (a * b) / c;
-  printf("(char)30 * (char)40 / char(10) = %d\n", d); // still works
+  // still works - called integer promotion
+  printf("((char)30) * ((char)40) / (char(10)) = %d\n", d);
 
+  // e and f have same binary representation as char
+  // so same character is printed
+  // but when they are converted to int
+  // signed char e becomes -5 (signed value of 0xfb)
+  // unsigned char f becomes 251 (unsigned value of 0xfb)
   char e = 0xfb;
   unsigned char f = 0xfb;
 
-  // hex: 1111 1011
-  // 2's complement of signed numbers: 10000101 = -5
+  // (signed) char e (here, regarded as negative number): 1111 1011
+  // Two's complement is the most common method of representing signed integers
+  // on computers, which is calculated by inverting the digits and adding one.
+  // so: if e is a 2's complement, the true value of e is:
+  // 1111 1011 (2's complement)
+  //        -1 (minus 1)
+  // ----------
+  // 1111 1010 (now inverse all numbers except the sign number)
+  // ----------
+  // 1000 0101 = -5
 
-  printf("(char)(0xfb) = %c, (int)(0xfb) = %d\n", e, e);
-  printf("(unsigned char)(0xfb) = %c, (unsigned int)(0xfb) = %d\n", f, f);
+  // unsigned char f (regarded as positive numbers): 1111 1011
+  // A positive number written in two's-complement notation is the same as
+  // the number written in unsigned notation
+  // so: f = 1111 1011(B) = 251(D)
+
+  printf("((char)(0xfb)) = %c, ((int)(0xfb)) = %d\n", e, (int) e);
+  printf("((unsigned char)(0xfb)) = %c, ((unsigned int)(0xfb)) = %d\n", f,
+         (unsigned int) f);
 
   // when comparison operation is performed on e & f, they are first
   // converted to int.

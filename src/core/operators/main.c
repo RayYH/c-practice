@@ -16,6 +16,9 @@
 #define parenthesis (one, two, three);
 #define no_parenthesis one, two, three;
 
+/**
+ * Arithmetic operators.
+ */
 void arithmetic_operators() {
   START
 
@@ -34,6 +37,9 @@ void arithmetic_operators() {
   END
 }
 
+/**
+ * Increment and decrement operators.
+ */
 void increment_decrement_operators() {
   START
 
@@ -52,6 +58,9 @@ void increment_decrement_operators() {
   END
 }
 
+/**
+ * Assignment operators.
+ */
 void assignment_operators() {
   START
 
@@ -73,6 +82,9 @@ void assignment_operators() {
   END
 }
 
+/**
+ * Relational operators.
+ */
 void relational_operators() {
   START
 
@@ -94,6 +106,9 @@ void relational_operators() {
   END
 }
 
+/**
+ * Logical operators.
+ */
 void logical_operators() {
   START
 
@@ -118,6 +133,9 @@ void logical_operators() {
   END
 }
 
+/**
+ * Bitwise operators.
+ */
 void bitwise_operators() {
   START
 
@@ -207,6 +225,9 @@ void bitwise_operators() {
   END
 }
 
+/**
+ * Short circuiting in logical operators.
+ */
 void short_circuiting_in_logical_operators() {
   START
 
@@ -218,7 +239,13 @@ void short_circuiting_in_logical_operators() {
   printf("\n");
 }
 
-// Function to return the only odd occurring element.
+/**
+ * Function to return the only odd occurring element.
+ *
+ * @param arr given array
+ * @param n the array length
+ * @return the only odd occurring element
+ */
 int find_odd(int arr[], int n) {
   int res = 0, i;
 
@@ -229,34 +256,59 @@ int find_odd(int arr[], int n) {
   return res;
 }
 
+/**
+ * find_odd test function.
+ */
 void find_odd_test() {
   int arr[] = {12, 12, 14, 90, 14, 14, 14};
   int n = sizeof(arr) / sizeof(arr[0]);
   assert(find_odd(arr, n) == 90);
 }
 
-// Function to check if given value is an even number.
+/**
+ * Function to check if given value is an even number.
+ *
+ * @param x given value
+ * @return true if x is even, otherwise false
+ */
 bool is_even(int x) {
   return (x & 1) ? true : false;
 }
 
+/**
+ * test is_even function.
+ */
 void is_even_test() {
   assert(is_even(1));
   assert(!is_even(2));
 }
 
+// global variable
 int x = 0;
 
+/**
+ * change x to 5.
+ *
+ * @return x
+ */
 int f1() {
   x = 5;
   return x;
 }
 
+/**
+ * change x to 10.
+ *
+ * @return x
+ */
 int f2() {
   x = 10;
   return x;
 }
 
+/**
+ * test x value.
+ */
 void x_test() {
   START
 
@@ -267,6 +319,9 @@ void x_test() {
   END
 }
 
+/**
+ * Comma operator.
+ */
 void comma_operator() {
   START
 
@@ -303,6 +358,9 @@ void comma_operator() {
   END
 }
 
+/**
+ * Chaining of comparison operators.
+ */
 void chaining_of_comparison_operators() {
   int a = 1, b = 20, c = 30;
 
@@ -312,6 +370,9 @@ void chaining_of_comparison_operators() {
   assert(c > b <= a);
 }
 
+/**
+ * Sizeof.
+ */
 void sizeof_operator() {
   START
 
@@ -355,16 +416,27 @@ void sizeof_operator() {
   END
 }
 
+/**
+ * Simple function returns zero.
+ *
+ * @return constant 0
+ */
 int zero() {
   return 0;
 }
 
+/**
+ * Test ternary operator.
+ */
 void ternary_operator() {
   int i = zero();
   assert((i ? 3 : 'A') == 65);
   assert((i ? 3 : 'A') == 'A');
 }
 
+/**
+ * Test macros.
+ */
 void macro_test() {
   START
 

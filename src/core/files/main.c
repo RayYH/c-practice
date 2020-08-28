@@ -1,10 +1,5 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "core.h"
-
-static char tmp_file[100] = "/tmp/c-practice-core-files.txt";
-
 /**
+ *******************************************************************************
  * r: Open for reading.
  * If the file does not exist, fopen() returns NULL.
  *
@@ -42,14 +37,25 @@ static char tmp_file[100] = "/tmp/c-practice-core-files.txt";
  *
  * ab+: Open for both reading and appending in binary mode.
  * If the file does not exist, it will be created.
+ *******************************************************************************
  */
 
+#include "stdio.h"
+#include "stdlib.h"
+#include "core.h"
+
+static char tmp_file[100] = "/tmp/c-practice-core-files.txt";
+
+/**
+ * Basic usage of file functions.
+ */
 void basic_usage() {
   START
 
   int num = 123;
   FILE *fptr;
 
+  // open file
   fptr = fopen(tmp_file, "w");
 
   if (fptr == NULL) {
@@ -57,14 +63,18 @@ void basic_usage() {
     exit(1);
   }
 
+  // write a formatted string
   fprintf(fptr, "%d", num);
+  // close handle (file pointer)
   fclose(fptr);
 
-  // read file
+  // open file again
   if ((fptr = fopen(tmp_file, "r")) == NULL) {
     printf("Error occurred when opening a file.");
     exit(1);
   }
+
+  // read file contents
   fscanf(fptr, "%d", &num);
   printf("Value of n = %d", num);
   fclose(fptr);
@@ -72,11 +82,15 @@ void basic_usage() {
   END
 }
 
-// In C, fseek() should be preferred over rewind().
-// The rewind function sets the file position indicator for the stream pointed
-// to by stream to the beginning of the file. It is equivalent to
-// (void)fseek(stream, 0L, SEEK_SET)
-// except that the error indicator for the stream is also cleared.
+/**
+ * Difference between fseek and rewind.
+ *
+ * In C, fseek() should be preferred over rewind().
+ * The rewind function sets the file position indicator for the stream pointed
+ * to by stream to the beginning of the file. It is equivalent to
+ * (void)fseek(stream, 0L, SEEK_SET)
+ * except that the error indicator for the stream is also cleared.
+ */
 void fseek_vs_rewind() {
   FILE *fp = fopen(tmp_file, "r");
 
@@ -89,9 +103,13 @@ void fseek_vs_rewind() {
   }
 }
 
-// Comparing the value returned by getc() with EOF is not sufficient to check
-// for actual end of file. C provides feof() which returns non-zero value only
-// if end of file has reached, otherwise it returns 0.
+/**
+ * getc function.
+ *
+ * Comparing the value returned by getc() with EOF is not sufficient to check
+ * for actual end of file. C provides feof() which returns non-zero value only
+ * if end of file has reached, otherwise it returns 0.
+ */
 void getc_returns_eof_vs_feof() {
   START
 
@@ -115,10 +133,14 @@ void getc_returns_eof_vs_feof() {
   END
 }
 
-// w mode: If a file with the same name already exists, its contents are
-// discarded and the file is treated as a new empty file.
-// wx mode: x is exclusive create-and-open mode. When x is used with w, 
-// fopen() returns NULL if file already exists or could not open.
+/**
+ * w vs wx mode.
+ *
+ * w mode: If a file with the same name already exists, its contents are
+ * discarded and the file is treated as a new empty file.
+ * wx mode: x is exclusive create-and-open mode. When x is used with w,
+ * fopen() returns NULL if file already exists or could not open.
+ */
 void w_vs_wx_mode() {
   START
 

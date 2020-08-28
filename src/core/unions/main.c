@@ -26,6 +26,25 @@ union test {
   char y;
 };
 
+void avoid_inspection() {
+  union test1 test_1;
+  test_1.x = 0;
+  assert(test_1.x == 0);
+  test_1.y = 0;
+  assert(test_1.y == 0);
+  union test2 test_2;
+  test_2.x = 0;
+  assert(test_2.x == 0);
+  test_2.y = 'A';
+  assert(test_2.y == 'A');
+  // all members share the same memory location.
+  // so in below code, arr[0] = y = 'A'
+  union test3 test_3;
+  test_3.arr[0] = 'A';
+  assert(test_3.arr[0] == 'A');
+  assert(test_3.y == 'A');
+}
+
 void share_same_location() {
   Point p;
   p.x = 2;
@@ -51,6 +70,7 @@ void union_with_pointer() {
 
 int main(void) {
 
+  avoid_inspection();
   share_same_location();
   union_with_pointer();
 

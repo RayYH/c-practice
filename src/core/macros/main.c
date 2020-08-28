@@ -3,6 +3,9 @@
 
 static inline int square(int x) { return x * x; }
 
+/**
+ * Standard macros.
+ */
 void std_macro_usage() {
   START
 
@@ -18,6 +21,9 @@ void std_macro_usage() {
   END
 }
 
+/**
+ * Custom macros.
+ */
 void custom_macro_usage() {
   START
 

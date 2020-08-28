@@ -1,11 +1,5 @@
-#include "stdio.h"
-#include "assert.h"
-#include "string.h"
-#include "core.h"
-
 /*
  *******************************************************************************
- *
  * Useful Links:
  *
  * https://www.geeksforgeeks.org/return-values-of-printf-and-scanf-in-c-cpp/
@@ -16,10 +10,17 @@
  * https://www.geeksforgeeks.org/g-fact-31/
  * http://swoolley.org/man.cgi/3/printf
  * https://www.geeksforgeeks.org/how-to-print-using-printf/
- *
  *******************************************************************************
  */
 
+#include "stdio.h"
+#include "assert.h"
+#include "string.h"
+#include "core.h"
+
+/**
+ * A simple echo program.
+ */
 void io_basic() {
   START
 
@@ -37,6 +38,9 @@ void io_basic() {
   }
 }
 
+/**
+ * scanf usage.
+ */
 void scanf_usage() {
   START
 
@@ -71,6 +75,9 @@ void scanf_usage() {
   END
 }
 
+/**
+ * gets usage.
+ */
 void gets_usage() {
   START
 
@@ -84,6 +91,9 @@ void gets_usage() {
   END
 }
 
+/**
+ * puts usage.
+ */
 void puts_usage() {
   START
 
@@ -98,6 +108,13 @@ void puts_usage() {
   END
 }
 
+/**
+ * %n is a special format specifier.
+ *
+ * It cause printf() to load the variable pointed by corresponding argument.
+ * The loading is done with a value which is equal to the number of characters
+ * printed by printf() before the occurrence of %n.
+ */
 void percent_n() {
   START
 
@@ -108,6 +125,9 @@ void percent_n() {
   END
 }
 
+/**
+ * Print percent character.
+ */
 void print_percent_char() {
   START
 
@@ -118,6 +138,9 @@ void print_percent_char() {
   END
 }
 
+/**
+ * fflush usage.
+ */
 void fflush_stdin() {
   START
 
@@ -130,6 +153,7 @@ void fflush_stdin() {
     scanf("%[^\n]s", str);
     printf("%s\n", str);
   }
+
   printf("\nEnter a string: ");
   fflush(stdin);
   for (i = 0; i < 2; i++) {

@@ -33,6 +33,9 @@ struct Employee {
 
 void add_numbers(Complex c1, Complex c2, Complex *result);
 
+/**
+ * Simple struct usage.
+ */
 void struct_usage() {
   struct Person person1, person2;
 
@@ -62,6 +65,9 @@ void struct_usage() {
   assert(person_ptr->age == 24);
 }
 
+/**
+ * We can define a struct array.
+ */
 void array_of_structure() {
   struct Complex arr[2] =
       {
@@ -76,6 +82,9 @@ void array_of_structure() {
   assert(result.imag == 6.0);
 }
 
+/**
+ * We can use a pointer to reference to a struct.
+ */
 void struct_with_pointer() {
   START
 
@@ -102,8 +111,13 @@ void struct_with_pointer() {
   END
 }
 
+/**
+ *
+ */
 void struct_hack() {
   struct Employee e;
+  e.emp_id = 0;
+  assert(e.emp_id == 0);
   assert(sizeof(e) == 8);
   // valid, now name is of length 128
   struct Employee *employee = malloc(sizeof(*employee) + sizeof(char) * 128);

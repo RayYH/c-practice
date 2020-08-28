@@ -1,6 +1,3 @@
-#include "assert.h"
-#include "stdio.h"
-
 /*
  *******************************************************************************
  *
@@ -18,15 +15,21 @@
  *******************************************************************************
  */
 
+#include "assert.h"
+#include <stdarg.h>
+#include "core.h"
+
 // global variable
 int z = 10;
 // type definition
 typedef long long int LL;
 
-// Variable Declaration:
-//
-// type variable_name;
-// type variable_1_name, variable_2_name, variable_3_name;
+/**
+ * Variable Declaration.
+ *
+ * type variable_name;
+ * type variable_1_name, variable_2_name, variable_3_name;
+ */
 void variables_assertion() {
   char b = 'G';
   LL c = 1000000;
@@ -45,9 +48,14 @@ void variables_assertion() {
   assert(z == 10);
 }
 
-// const data_type var_name = var_value;
-// Constant variables must be initialized during their declaration.
-// const keyword is also used with pointers.
+/**
+ * const keyword.
+ *
+ * const data_type var_name = var_value;
+ *
+ * Constant variables must be initialized during their declaration.
+ * const keyword is also used with pointers.
+ */
 void const_keyword() {
   // i is a constant of int type
   const int i = 10;
@@ -84,6 +92,9 @@ void const_keyword() {
   // *ptr = 100;  -> error
 }
 
+/**
+ * extern keyword.
+ */
 void extern_keyword() {
   // global_int was declared at the below
   extern int global_int;
@@ -94,6 +105,11 @@ void extern_keyword() {
   assert(global_int == 1);
 }
 
+/**
+ * Void is considered a data type (for organizational purposes), but it is
+ * basically a keyword to use as a placeholder where you would put a data
+ * type, to represent "no data".
+ */
 void void_keyword() {
   // malloc() and calloc() return void * type and this allows these functions
   // to be used to allocate memory of any data type
@@ -113,24 +129,40 @@ void void_keyword() {
   assert(*(int *) ptr == 2);
 }
 
+/**
+ * Counter with static keyword.
+ *
+ * @return the count
+ */
 static int static_counter() {
-  // Static variables are allocated memory in data segment, not stack segment.
-  // Static variables (like global variables) are initialized as 0 if not
-  // initialized explicitly.
-  // In C, static variables can only be initialized using constant literals.
-  // Static variables should not be declared inside structure.
   static int count;
   count++;
 
   return count;
 }
 
+/**
+ * Counter without static keyword.
+ *
+ * @return the count
+ */
 static int counter() {
   int count = 0;
   count++;
   return count;
 }
 
+/**
+ * Static variables are allocated memory in data segment, not stack segment.
+ *
+ * Static variables (like global variables) are initialized as 0 if not
+ * initialized explicitly.
+ *
+ * In C, static variables can only be initialized using constant literals.
+ * Static variables should not be declared inside structure.
+ *
+ * @return count
+ */
 void static_keyword() {
   assert(counter() == 1);
   assert(counter() == 1);
@@ -138,7 +170,32 @@ void static_keyword() {
   assert(static_counter() == 2);
 }
 
-int global_int = 1;
+/**
+ * To use rest parameters, you should include stdarg.h header file first.
+ *
+ * 1. Define a function with its last parameter as ellipses and the one just
+ *    before the ellipses is always an int which will represent the number of
+ *    arguments.
+ * 2. Create a va_list type variable in the function definition.
+ * 3. Use int parameter and va_start macro to initialize the va_list variable
+ *    to an argument list.
+ * 4. Use va_arg macro and va_list variable to access each item in argument
+ *    list.
+ * 5. Use a macro va_end to clean up the memory assigned to va_list variable.
+ */
+double average(int num, ...) {
+  va_list variable_list;
+  double sum = 0.0;
+  int i;
+  va_start(variable_list, num);
+
+  for (i = 0; i < num; i++) {
+    sum += va_arg(variable_list, int);
+  }
+  va_end(variable_list);
+
+  return sum / num;
+}
 
 int main(void) {
   assert(global_int == 1);
@@ -147,6 +204,8 @@ int main(void) {
   extern_keyword();
   void_keyword();
   static_keyword();
+  assert(average(4, 2, 3, 4, 5) == 3.5);
+  assert(average(3, 5, 10, 15) == 10.0);
 
   return 0;
 }

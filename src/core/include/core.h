@@ -1,6 +1,8 @@
 #ifndef C_PRACTICE_SRC_CORE_INCLUDE_CORE_H_
 #define C_PRACTICE_SRC_CORE_INCLUDE_CORE_H_
 
+/** a global variable */
+int global_int = 1;
 /** the max value of generated random int number */
 #define ELEM_MAX 100
 /** the min value of generated random int number */
