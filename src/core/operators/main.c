@@ -23,6 +23,7 @@ void arithmetic_operators() {
   START
 
   int a = 9, b = 4, c;
+  printf("a = %d, b = %d.\n", a, b);
   c = a + b;
   printf("a+b = %d \n", c);
   c = a - b;
@@ -127,6 +128,8 @@ void logical_operators() {
   printf("!((a != b) || (c < b)) is %d \n", !result);
 
   int x = 10, y = 10;
+  assert(x == 10);
+  assert(y == 10);
   // in c++, sizeof(x == y) is 1
   assert(sizeof(x == y) == sizeof(int));
 
@@ -379,10 +382,12 @@ void sizeof_operator() {
   // get size
   int a = 0;
   double d = 10.21;
+  assert(a + d > 0);
   assert(8 == sizeof(a + d));
 
   // counting number of array elements
   int arr[] = {1, 2, 3, 4, 7, 98, 0, 12, 35, 99, 14};
+  assert(arr[0] == 1);
   assert(11 == sizeof(arr) / sizeof(arr[0]));
 
   // allocate a block of memory dynamically
