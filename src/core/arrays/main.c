@@ -5,12 +5,23 @@
 #include "core.h"
 
 /**
- * Traverse one-dimensional array.
+ * A general method for iterating one-dimensional array . If there's an array
+ * `arr[i]`, the accepted params are:
  *
- * @param arr the location of given array
- * @param size the array size
+ * arr: &arr[0] or (int *) arr
+ * size: i
+ *
+ * @param arr the first element's (or the array's) location
+ * @param size size of array
+ * @param
  */
-void traverse_one_dimensional_array(int *arr, int size);
+void traverse_one_dimensional_array(int *arr, int size) {
+  for (int i = 0; i < size; i++) {
+    printf("%-4d", *(arr + i));
+  }
+
+  printf("\n");
+}
 
 /**
  * A simple example of array declaration.
@@ -56,28 +67,8 @@ void array_declaration() {
 void contiguous_memory_locations() {
   int arr[5];
   for (int i = 0; i < 4; i++) {
-    assert(
-        ((long) &arr[i + 1] - (long) &arr[i]) == sizeof(int)
-    );
+    assert(((long) &arr[i + 1] - (long) &arr[i]) == sizeof(int));
   }
-}
-
-/**
- * Display one-dimensional array.
- */
-void display_one_dimensional_array() {
-  START
-
-  int size = 5;
-  int nums[5] = {12, 28, 3, 1, 9};
-
-  assert ((sizeof(nums) / sizeof(nums[0])) == size);
-
-  for (int i = 0; i < size; i++) {
-    printf("nums[%d] is equal to %d\n", i, nums[i]);
-  }
-
-  END
 }
 
 /**
@@ -91,6 +82,7 @@ void display_two_dimensional_array() {
       {'D', 'E', 'F'}
   };
 
+  // Imagine this as a matrix
   assert ((sizeof(ch) / sizeof(ch[0])) == 2);
   assert ((sizeof(ch[0]) / sizeof(ch[0][0])) == 3);
 
@@ -118,29 +110,9 @@ void array_from_stdin() {
   }
 
   printf("Displaying integers: ");
-  for (int i = 0; i < 5; ++i) {
-    printf("%d ", values[i]);
-  }
+  traverse_one_dimensional_array(&values[0], 5);
 
   END
-}
-
-/**
- * A common one-dimensional array traversal method. If there's an array
- * `arr[i]`, the accepted params are:
- *
- * arr: &arr[0] or (int *) arr
- * size: i
- *
- * @param arr the first element's (or the array's) location
- * @param size size of array
- */
-void traverse_one_dimensional_array(int *arr, int size) {
-  for (int i = 0; i < size; i++) {
-    printf("%-4d", *(arr + i));
-  }
-
-  printf("\n");
 }
 
 /**
@@ -257,7 +229,6 @@ int main(void) {
       {3, 4}
   };
   display_numbers(arr);
-  display_one_dimensional_array();
   display_two_dimensional_array();
   sum_square_matrix();
   not_certain_size_array();
