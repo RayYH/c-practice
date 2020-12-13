@@ -1,8 +1,3 @@
-#include "stdio.h"
-#include "assert.h"
-#include "stdbool.h"
-#include "stdlib.h"
-#include "string.h"
 #include "core.h"
 
 // https://www.programiz.com/c-programming/c-operators

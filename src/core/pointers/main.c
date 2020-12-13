@@ -1,13 +1,3 @@
-/**
- * useful links
- *
- * https://stackoverflow.com/questions/1576489/where-are-constant-variables-stored-in-c
- * https://www.geeksforgeeks.org/memory-layout-of-c-program/
- */
-
-#include "stdio.h"
-#include "stdlib.h"
-#include "assert.h"
 #include "core.h"
 
 /**

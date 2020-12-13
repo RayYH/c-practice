@@ -1,4 +1,4 @@
-#include "assert.h"
+#include "core.h"
 // In union, all members share the same memory location.
 
 typedef union point {

@@ -1,4 +1,4 @@
-#include "stdio.h"
+#include "core.h"
 
 #define PRINT_STRING(str) printf("%s\n", str);
 

@@ -1,3 +1,5 @@
+#include "core.h"
+
 /**
  *******************************************************************************
  * Type     	            Size (bytes)        	        Format Specifier
@@ -16,12 +18,6 @@
  * long double      	    at least 10, usually 12 or 16   %Lf
  *******************************************************************************
  */
-
-#include "stdio.h"
-#include "limits.h"
-#include "assert.h"
-#include "stdbool.h"
-#include "core.h"
 
 /**
  * Common data types usage.

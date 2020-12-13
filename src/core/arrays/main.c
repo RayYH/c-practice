@@ -1,19 +1,14 @@
-#include "stdio.h"
-#include "time.h"
-#include "stdlib.h"
-#include "assert.h"
 #include "core.h"
 
 /**
- * A general method for iterating one-dimensional array . If there's an array
- * `arr[i]`, the accepted params are:
+ * A general method for iterating one-dimensional array.
+ * If there's an array `arr[i]`, the accepted params are:
  *
  * arr: &arr[0] or (int *) arr
  * size: i
  *
  * @param arr the first element's (or the array's) location
  * @param size size of array
- * @param
  */
 void traverse_one_dimensional_array(int *arr, int size) {
   for (int i = 0; i < size; i++) {

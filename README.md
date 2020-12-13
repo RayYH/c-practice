@@ -13,6 +13,6 @@ $ cd build && cmake ..
 $ make
 ```
 
-## LICENSE
+## License
 
-[MIT](LICENSE).
+This work is open-sourced and licensed under the [MIT license](LICENSE).

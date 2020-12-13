@@ -40,8 +40,6 @@
  *******************************************************************************
  */
 
-#include "stdio.h"
-#include "stdlib.h"
 #include "core.h"
 
 static char tmp_file[100] = "/tmp/c-practice-core-files.txt";

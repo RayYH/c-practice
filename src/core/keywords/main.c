@@ -1,3 +1,5 @@
+#include "core.h"
+
 /**
  *******************************************************************************
  * 1. A valid identifier can have letters(both uppercase and lowercase
@@ -21,8 +23,6 @@
  * \0	Null character
  *******************************************************************************
  */
-#include "stdio.h"
-#include "core.h"
 
 /**
  * Print a section of characters.

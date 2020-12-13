@@ -1,22 +1,3 @@
-/*
- *******************************************************************************
- *
- * Useful Links:
- *
- * https://stackoverflow.com/questions/1143262/what-is-the-difference-between-const-int-const-int-const-and-int-const
- * https://www.geeksforgeeks.org/difference-between-definition-and-declaration/
- * https://www.geeksforgeeks.org/understanding-extern-keyword-in-c/
- * https://www.geeksforgeeks.org/static-variables-in-c/
- * https://www.geeksforgeeks.org/what-are-static-functions-in-c/
- * https://www.geeksforgeeks.org/variables-and-keywords-in-c/
- * https://www.geeksforgeeks.org/void-pointer-c-cpp/
- * https://www.geeksforgeeks.org/g-fact-16/
- *
- *******************************************************************************
- */
-
-#include "assert.h"
-#include <stdarg.h>
 #include "core.h"
 
 // global variable

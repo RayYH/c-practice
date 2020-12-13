@@ -1,14 +1,4 @@
-/**
- * Ref Links:
- * http://www.cplusplus.com/reference/cctype
- * https://www.programiz.com/c-programming/library-function/ctype.h/isgraph
- */
-
-#include "stdio.h"
-#include "assert.h"
-#include "ctype.h"
-#include "stdlib.h"
-#include "string.h"
+#include "core.h"
 
 /**
  * Check if character is alphanumeric.

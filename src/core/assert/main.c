@@ -1,5 +1,4 @@
-#include "assert.h"
-#include "stdio.h"
+#include "core.h"
 
 /**
  * `assert.h` defines one macro function that can be used as a standard

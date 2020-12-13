@@ -1,8 +1,4 @@
-#include "stdio.h"
-#include "string.h"
-#include "stdlib.h"
 #include "core.h"
-#include "assert.h"
 
 struct Person {
   char name[50];

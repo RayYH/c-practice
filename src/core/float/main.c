@@ -1,5 +1,4 @@
-#include "stdio.h"
-#include "float.h"
+#include "core.h"
 
 int main(void) {
 

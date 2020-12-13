@@ -1,5 +1,4 @@
-#include "stdio.h"
-#include "assert.h"
+#include "core.h"
 
 // The keyword `enum` is used to declare new enumeration types in C and C++.
 // declaration: enum flag{constant_1, constant_2, constant_3, ...}

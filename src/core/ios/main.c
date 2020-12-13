@@ -1,21 +1,3 @@
-/*
- *******************************************************************************
- * Useful Links:
- *
- * https://www.geeksforgeeks.org/return-values-of-printf-and-scanf-in-c-cpp/
- * https://www.geeksforgeeks.org/g-fact-11/
- * https://www.geeksforgeeks.org/scansets-in-c/
- * https://www.geeksforgeeks.org/gets-is-risky-to-use/
- * https://www.geeksforgeeks.org/puts-vs-printf-for-printing-a-string/
- * https://www.geeksforgeeks.org/g-fact-31/
- * http://swoolley.org/man.cgi/3/printf
- * https://www.geeksforgeeks.org/how-to-print-using-printf/
- *******************************************************************************
- */
-
-#include "stdio.h"
-#include "assert.h"
-#include "string.h"
 #include "core.h"
 
 /**

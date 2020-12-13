@@ -1,5 +1,4 @@
-#include "assert.h"
-#include "stdio.h"
+#include "core.h"
 
 /**
  * Modulus on negative numbers.
