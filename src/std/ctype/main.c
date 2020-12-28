@@ -1,7 +1,7 @@
-#include "core.h"
+#include "std.h"
 
 /**
- * Check if character is alphanumeric.
+ * Check if character is alphanumeric (the alphabet and numbers).
  */
 void isalnum_test() {
   char str[] = "c3po...";
@@ -30,8 +30,8 @@ void isalpha_test() {
  * Check if character is blank.
  */
 void isblank_test() {
-  char c;
   int i = 0;
+  char c;
   char str[] = "Example sentence to test isblank\n";
   char new_str[strlen(str)];
   while (str[i]) {
