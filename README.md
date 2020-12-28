@@ -1,6 +1,6 @@
 # C Practice
 
-Just some c code, **USE AT YOUR OWN RISK.**
+Some code written in C which may be terrible and buggy, **USE AT YOUR OWN RISK.**
 
 ## Build
 

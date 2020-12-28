@@ -16,4 +16,5 @@ add_library(dsa_lib
         )
 
 add_subdirectory(sorting)
+add_subdirectory(trees)
 add_subdirectory(leetcode)
