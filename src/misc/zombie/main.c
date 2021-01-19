@@ -8,20 +8,22 @@ int main(void) {
   pid_t pid;
   int status;
 
-  if ((pid = fork()) < 0) { // Error
+  // Error
+  if ((pid = fork()) < 0) {
     perror("fork");
     exit(1);
   }
 
-  if (pid == 0) { // Chile
+  // Child
+  if (pid == 0) {
     exit(0);
   }
 
-  // Parent: Gives you time to observe the zombie using ps(1) ...
-  // while true; do clear && ps aux ; sleep 1; done
+  // Parent
+  // Gives you time to observe the zombie using ps(1): while true; do clear && ps aux ; sleep 1; done
   sleep(100);
 
-  /* and after that, parent wait(2)s its child's exit status, and prints a relevant message.*/
+  // After that, parent waits its child's exit status, and prints a relevant message.
   pid = wait(&status);
   if (WIFEXITED(status)) {
     fprintf(stderr, "\n\t[%d]\tProcess %d exited with status %d.\n",
