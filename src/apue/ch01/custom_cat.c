@@ -12,7 +12,7 @@
  * ./custom_cat < infile > outfile
  * The file named infile will be copied to the file named outfile.
  *
- * @return
+ * @return void
  */
 int main(void) {
   int n;

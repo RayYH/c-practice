@@ -6,6 +6,7 @@ include_directories(include)
 include_directories(lib)
 link_libraries(lib)
 
+# Add executables
 add_executable(custom_ls custom_ls.c)
 add_executable(custom_cat custom_cat.c)
 add_executable(custom_copy custom_copy.c)
