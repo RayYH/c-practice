@@ -22,7 +22,7 @@ int global_int = 1;
 #define HL "____________________________________________________"
 /** indicating start of a function */
 #define START printf("\n");printf(__FUNCTION__);printf(":\n%s\n", HL);
-/** just sending a new line to output */
+/** just output a linefeed when function ends */
 #define END printf("\n");
 
 #endif //C_PRACTICE_SRC_CORE_INCLUDE_CORE_H_
