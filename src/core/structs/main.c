@@ -27,6 +27,17 @@ struct Employee {
   char name[0];
 };
 
+// structures will be padded to 4-byte alignment
+typedef struct {
+  char Data1; // 1
+  // 3-Bytes Added here.
+  int Data2; // 4
+  unsigned short Data3; // 2
+  char Data4; // 1
+  //1-byte Added here.
+
+} sSampleStruct;
+
 void add_numbers(Complex c1, Complex c2, Complex *result);
 
 /**
