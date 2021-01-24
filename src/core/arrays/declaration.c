@@ -1,7 +1,7 @@
 #include "core.h"
 
 /**
- * A general method for iterating one-dimensional array.
+ * Iterating one-dimensional array.
  *
  * HINT: there's no difference between `int *arr` and `int arr[]`.
  *
@@ -41,7 +41,7 @@ int main(void) {
 
   // array declaration by specifying size and initializing elements
   int arr4[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-  traverse_one_dimensional_array(&arr4[0], 10);
+  traverse_one_dimensional_array(arr4, 10);
 
   return 0;
 }

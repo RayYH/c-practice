@@ -4,24 +4,6 @@
 static inline int square(int x) { return x * x; }
 
 /**
- * Standard macros.
- */
-void std_macro_usage() {
-  START
-
-  // https://gcc.gnu.org/onlinedocs/cpp/Standard-Predefined-Macros.html
-  printf("__DATE__: %s\n", __DATE__);
-  printf("__TIME__: %s\n", __TIME__);
-  printf("__FILE__: %s\n", __FILE__);
-  printf("__LINE__: %d\n", __LINE__);
-  printf("__STDC__: %d\n", __STDC__);
-  printf("__STDC_VERSION__: %ld\n", __STDC_VERSION__);
-  printf("__STDC_HOSTED__: %d\n", __STDC_HOSTED__);
-
-  END
-}
-
-/**
  * Custom macros.
  */
 void custom_macro_usage() {
@@ -40,7 +22,7 @@ void custom_macro_usage() {
   assert(6 == MULTIPLY(2, 3));
   assert(16 == MULTIPLY(2 + 3, 3 + 5)); // 2+3*3+5 = 2+9+5 = 16
   assert(40 == MULTIPLY2(2 + 3, 3 + 5)); // (2+3)*(3+5) = 40
-  assert(1234 == MERGE(12, 34));
+
 
   printf("%s!\n", GET(C PRACTICE));
 

@@ -1,7 +1,7 @@
 #include "core.h"
 
 /**
- * A general method for iterating one-dimensional array.
+ * A common one-dimensional array traversal method.
  *
  * @param arr   pointer to given array
  * @param size  size of given array
@@ -17,9 +17,9 @@ void traverse_one_dimensional_array(int *arr, int size) {
 /**
  * A common two-dimensional array traversal method.
  *
- * @param arr           the first element's location
- * @param outer_size    outer size
- * @param inner_size    inner size
+ * @param arr         the first element's location
+ * @param outer_size  outer size
+ * @param inner_size  inner size
  */
 void traverse_two_dimensional_array(int *arr, int outer_size, int inner_size) {
   for (int i = 0; i < outer_size; i++) {

@@ -5,8 +5,8 @@
  *
  * float f[] means float *f, a pointer to a float value.
  *
- * @param   f       given array
- * @param   size    the size of array
+ * @param f     given array
+ * @param size  the size of array
  *
  * @return the sum of array elements
  */
@@ -20,7 +20,7 @@ double calculate_sum(float f[], int size) {
 }
 
 /**
- * We can use `sizeof` operator to get the size of size-not-certain array.
+ * We can use `sizeof` operator to get the length of an array.
  */
 void not_certain_size_array() {
   START
@@ -44,9 +44,10 @@ void not_certain_size_array() {
  *
  * @param num array
  */
-void display_numbers(int num[2][2]) {
+void display_array(int num[2][2]) {
   START
 
+  num[0][0] = 1;
   for (int i = 0; i < 2; ++i) {
     for (int j = 0; j < 2; ++j) {
       printf("%d ", num[i][j]);
@@ -58,13 +59,46 @@ void display_numbers(int num[2][2]) {
   END
 }
 
+struct ArrayWrapper {
+  int arr[2][2];
+};
+
+void display_array_wrapper(struct ArrayWrapper array_wrapper) {
+  START
+  array_wrapper.arr[0][0] = 1;
+  for (int i = 0; i < 2; ++i) {
+    for (int j = 0; j < 2; ++j) {
+      printf("%d ", array_wrapper.arr[i][j]);
+    }
+
+    printf("\n");
+  }
+
+  END
+}
+
 int main(void) {
   not_certain_size_array();
   int arr[2][2] = {
-      {1, 2},
+      {0, 2},
       {3, 4}
   };
-  display_numbers(arr);
+  // In C, array name represents address and when we pass an array, we actually
+  // pass address and the parameter receiving function always accepts them
+  // as pointers.
+  display_array(arr);
+  // the value changed
+  assert(arr[0][0] == 1);
+
+  struct ArrayWrapper array_wrapper = {
+      .arr =  {
+          {0, 2},
+          {3, 4}
+      }
+  };
+  display_array_wrapper(array_wrapper);
+  // the value has not been changed
+  assert(array_wrapper.arr[0][0] == 0);
 
   return 0;
 }
