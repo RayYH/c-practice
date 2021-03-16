@@ -15,11 +15,13 @@ void graceful(int signum) {
 // 为信号注册回调
 void set_handler() {
   struct sigaction current;
-  // 是将 current 的信号集先清空
+  // 将 current 的信号集先清空
   sigemptyset(&current.sa_mask);
-  //
+  // 设置为 0 代表不设置任何模式
   current.sa_flags = 0;
+  // 设置处理函数
   current.sa_handler = graceful;
+  // 绑定回调
   sigaction(SIGTERM, &current, NULL);
 }
 
@@ -49,7 +51,7 @@ int main() {
   pid_t pid = fork();
   if (pid < 0) {
     perror("fork");
-    return -1; /* error */
+    return -1;
   }
   if (0 == pid) {
     child_code();
