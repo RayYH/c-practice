@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(c_practice_src_core C)
 set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_FLAGS -pthread)
 
 file(GLOB_RECURSE APP_SOURCES *.c)
 include_directories(include include)
