@@ -12,7 +12,7 @@ void graceful(int signum) {
   exit(0);
 }
 
-// 为信号注册回调
+// 使用 sigaction 为信号注册回调，为了简单，本例中我们使用了 signal 函数 (child_code 代码块)
 void set_handler() {
   struct sigaction current;
   // 将 current 的信号集先清空
@@ -26,7 +26,7 @@ void set_handler() {
 }
 
 void child_code() {
-  set_handler();
+  signal(SIGTERM, graceful);
 
   while (1) {
     sleep(1);
@@ -47,7 +47,7 @@ void parent_code(pid_t cpid) {
   puts("My child terminated, about to exit myself...");
 }
 
-int main() {
+int main(void) {
   pid_t pid = fork();
   if (pid < 0) {
     perror("fork");
