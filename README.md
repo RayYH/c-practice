@@ -11,6 +11,11 @@ $ docker exec -it c-practice /bin/bash
 
 $ cd build && cmake ..
 $ make
+
+# or, use gcc directly - avoid polluting `src` dir
+$ cp -r src/* playground
+$ cd playground
+# do something...
 ```
 
 ## License

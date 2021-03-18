@@ -8,6 +8,8 @@ add_subdirectory(core)
 add_subdirectory(std)
 # Data Structure and Algorithms
 add_subdirectory(dsa)
+# IPC
+add_subdirectory(ipc)
 # Miscellaneous
 add_subdirectory(misc)
 # Advanced Programming in the UNIX Environment
