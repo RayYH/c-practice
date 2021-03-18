@@ -8,6 +8,8 @@ add_subdirectory(core)
 add_subdirectory(std)
 # Data Structure and Algorithms
 add_subdirectory(dsa)
+# Process management
+add_subdirectory(process)
 # IPC
 add_subdirectory(ipc)
 # Miscellaneous
