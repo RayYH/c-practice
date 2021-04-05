@@ -4,6 +4,8 @@ set(CMAKE_C_STANDARD 11)
 
 # Core syntax of C
 add_subdirectory(core)
+# Algorithms
+add_subdirectory(algorithms)
 # std libs of C
 add_subdirectory(std)
 # Data Structure and Algorithms
