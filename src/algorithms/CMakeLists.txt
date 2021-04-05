@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 project(c_practice_src_core C)
 set(CMAKE_C_STANDARD 11)
 
-file(GLOB_RECURSE APP_SOURCES *.c)
+file(GLOB_RECURSE APP_SOURCES leetcode/*.c)
 include_directories(include include)
 include_directories(lib lib)
 
