@@ -1,7 +1,7 @@
 #include "core.h"
 
 /**
- * show while loop statements.
+ * While loop is executed only when given condition is true.
  */
 void while_loop() {
   START
@@ -20,7 +20,8 @@ void while_loop() {
 }
 
 /**
- * Show do-while loop statements.
+ * do-while loop is executed for first time irrespective of the condition.
+ * After executing while loop for first time, then condition is checked.
  */
 void do_while_loop() {
   START

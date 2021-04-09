@@ -15,7 +15,7 @@ $ make
 # or, use gcc directly - avoid polluting `src` dir
 $ cp -r src/* playground
 $ cd playground
-# do something...
+# do something (e.g. gcc main.c -o main && ./main)
 ```
 
 ## License

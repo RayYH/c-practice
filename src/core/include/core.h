@@ -1,7 +1,7 @@
 #ifndef C_PRACTICE_SRC_CORE_INCLUDE_CORE_H_
 #define C_PRACTICE_SRC_CORE_INCLUDE_CORE_H_
 
-/** std headers */
+/** some std headers */
 #include "stdio.h"
 #include "time.h"
 #include "stdlib.h"
