@@ -1,9 +1,9 @@
 #include "core.h"
 
 int main(void) {
-  printf("include stdbool.h we can use true and false macros:\n");
-
-  // include stdbool.h we can use true and false
-  printf("true:  %d\n", true);
-  printf("false: %d\n", false);
+  printf("include stdbool.h so we can use true and false macros:\n");
+  bool is_true = true;
+  bool is_false = false;
+  printf("true:  %d\n", is_true);
+  printf("false: %d\n", is_false);
 }
