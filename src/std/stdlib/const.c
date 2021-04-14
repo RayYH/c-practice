@@ -1,5 +1,4 @@
 #include "std.h"
-#include "stdlib.h"
 
 int main(void) {
   printf("EXIT_FAILURE(Failure termination code) = %d\n", EXIT_FAILURE);
