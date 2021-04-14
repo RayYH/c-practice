@@ -14,7 +14,7 @@
 
 #define SERVER_PORT 12345
 
-int main(int argc, char *argv[]) {
+int main(void) {
   int i, len, rc, on = 1;
   int sock_fd, max_sd, new_sd;
   int desc_ready, end_server = false;
